@@ -40,7 +40,7 @@ export default function NeoEvoWebsite() {
       price: "$1,000+",
       features: [
         "Everything in Starter",
-        "Login + dashboard demo",
+        "Login + dashboard ",
         "Inventory management flow",
         "Lead organization",
       ],
