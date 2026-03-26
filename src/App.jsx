@@ -150,7 +150,7 @@ export default function NeoEvoWebsite() {
                     Start Your Website
                   </a>
                   <a
-                    href="href="https://wa.me/18647149923?text=Hi%20I%20am%20interested%20in%20your%20services""
+                    href="href=https://wa.me/18647149923?text=Hi%20I%20am%20interested%20in%20your%20services"
                     target="_blank"
                     rel="noreferrer"
                     className="rounded-full border border-[#3DDB61]/30 bg-[#3DDB61]/10 px-4 py-2 font-medium text-[#3DDB61] transition hover:bg-[#3DDB61] hover:text-black"
