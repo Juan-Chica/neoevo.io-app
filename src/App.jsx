@@ -1,10 +1,10 @@
-import { useRef, useState } from "react"
-import emailjs from "@emailjs/browser"
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function NeoEvoWebsite() {
-  const formRef = useRef(null)
-  const [success, setSuccess] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const formRef = useRef(null);
+  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const services = [
     {
@@ -22,7 +22,7 @@ export default function NeoEvoWebsite() {
       description:
         "Chat features, online payments, automation, and future-ready tools for businesses that want more control.",
     },
-  ]
+  ];
 
   const offers = [
     {
@@ -56,7 +56,7 @@ export default function NeoEvoWebsite() {
         "Future automation ready",
       ],
     },
-  ]
+  ];
 
   const projects = [
     {
@@ -71,30 +71,41 @@ export default function NeoEvoWebsite() {
       title: "Business Growth Stack",
       subtitle: "Chat, payments, and premium conversion features",
     },
-  ]
+  ];
+
+  const contactLinks = {
+    sms: "sms:+18647149923",
+    call: "tel:+18647149923",
+    whatsapp:
+      "https://wa.me/18647149923?text=Hi%20I%20am%20interested%20in%20your%20services",
+    messenger: "https://m.me/YOUR_PAGE_USERNAME",
+    email: "mailto:info@neoevo.io",
+    instagram: "https://instagram.com/NeoEvo.io",
+    calendly: "https://calendly.com/neoevo-info/15-minute-quick-demo",
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setLoading(true)
-    setSuccess(false)
+    e.preventDefault();
+    setLoading(true);
+    setSuccess(false);
 
     try {
       await emailjs.sendForm(
         "service_p24wmf8",
         "template_fqxlctt",
         formRef.current,
-        "GVcbG8IKCsgussbRL"
-      )
+        "GVcbG8IKCsgussbRL",
+      );
 
-      setSuccess(true)
-      formRef.current.reset()
+      setSuccess(true);
+      formRef.current.reset();
     } catch (error) {
-      console.error("EmailJS FULL ERROR:", error)
-      alert("Something went wrong. Please try again.")
+      console.error("EmailJS FULL ERROR:", error);
+      alert("Something went wrong. Please try again.");
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-[#071017] text-white">
@@ -106,17 +117,27 @@ export default function NeoEvoWebsite() {
             </div>
             <div>
               <p className="text-lg font-semibold tracking-wide">NeoEvo</p>
-              <p className="text-xs text-white/60">Digital Systems for Growing Businesses</p>
+              <p className="text-xs text-white/60">
+                Digital Systems for Growing Businesses
+              </p>
             </div>
           </div>
 
           <nav className="hidden items-center gap-8 text-sm text-white/75 md:flex">
-            <a href="#services" className="transition hover:text-white">Services</a>
-            <a href="#offers" className="transition hover:text-white">Offers</a>
-            <a href="#work" className="transition hover:text-white">Work</a>
-            <a href="#contact" className="transition hover:text-white">Contact</a>
+            <a href="#services" className="transition hover:text-white">
+              Services
+            </a>
+            <a href="#offers" className="transition hover:text-white">
+              Offers
+            </a>
+            <a href="#work" className="transition hover:text-white">
+              Work
+            </a>
+            <a href="#contact" className="transition hover:text-white">
+              Contact
+            </a>
             <a
-              href="https://wa.me/18647149923?text=Hi%20I%20am%20interested%20in%20your%20services"
+              href={contactLinks.whatsapp}
               target="_blank"
               rel="noreferrer"
               className="rounded-full border border-[#3DDB61]/30 bg-[#3DDB61]/10 px-4 py-2 font-medium text-[#3DDB61] transition hover:bg-[#3DDB61] hover:text-black"
@@ -133,13 +154,17 @@ export default function NeoEvoWebsite() {
           <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
             <div className="grid items-center gap-14 lg:grid-cols-2">
               <div>
-                <p className="text-sm uppercase tracking-[0.35em] text-[#3DDB61]">NeoEvo.io</p>
+                <p className="text-sm uppercase tracking-[0.35em] text-[#3DDB61]">
+                  NeoEvo.io
+                </p>
                 <h1 className="mt-5 max-w-3xl text-5xl font-bold leading-tight tracking-tight md:text-6xl">
-                  Websites and systems built to make businesses look modern and grow faster.
+                  Websites and systems built to make businesses look modern and
+                  grow faster.
                 </h1>
                 <p className="mt-6 max-w-2xl text-lg text-white/70">
-                  NeoEvo helps service-based businesses launch professional websites, organize customer leads,
-                  and unlock smarter digital tools over time.
+                  NeoEvo helps service-based businesses launch professional
+                  websites, organize customer leads, and unlock smarter digital
+                  tools over time.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-4">
@@ -150,7 +175,7 @@ export default function NeoEvoWebsite() {
                     Start Your Website
                   </a>
                   <a
-                    href="href=https://wa.me/18647149923?text=Hi%20I%20am%20interested%20in%20your%20services"
+                    href={contactLinks.whatsapp}
                     target="_blank"
                     rel="noreferrer"
                     className="rounded-full border border-[#3DDB61]/30 bg-[#3DDB61]/10 px-4 py-2 font-medium text-[#3DDB61] transition hover:bg-[#3DDB61] hover:text-black"
@@ -162,15 +187,25 @@ export default function NeoEvoWebsite() {
                 <div className="mt-10 grid gap-4 sm:grid-cols-3">
                   <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
                     <p className="text-2xl font-bold text-[#3DDB61]">Fast</p>
-                    <p className="mt-2 text-sm text-white/65">Launch quickly with clean, high-conversion websites.</p>
+                    <p className="mt-2 text-sm text-white/65">
+                      Launch quickly with clean, high-conversion websites.
+                    </p>
                   </div>
                   <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
-                    <p className="text-2xl font-bold text-[#3DDB61]">Scalable</p>
-                    <p className="mt-2 text-sm text-white/65">Start simple and expand into systems, payments, and automation.</p>
+                    <p className="text-2xl font-bold text-[#3DDB61]">
+                      Scalable
+                    </p>
+                    <p className="mt-2 text-sm text-white/65">
+                      Start simple and expand into systems, payments, and
+                      automation.
+                    </p>
                   </div>
                   <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
                     <p className="text-2xl font-bold text-[#3DDB61]">Focused</p>
-                    <p className="mt-2 text-sm text-white/65">Built for businesses that want more leads and more control.</p>
+                    <p className="mt-2 text-sm text-white/65">
+                      Built for businesses that want more leads and more
+                      control.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -179,10 +214,16 @@ export default function NeoEvoWebsite() {
                 <div className="rounded-[1.5rem] border border-white/10 bg-[#0b1620] p-5">
                   <div className="flex items-center justify-between border-b border-white/10 pb-4">
                     <div>
-                      <p className="text-sm uppercase tracking-[0.3em] text-white/45">Featured System</p>
-                      <h2 className="mt-2 text-2xl font-bold">Dealer Pro Dashboard</h2>
+                      <p className="text-sm uppercase tracking-[0.3em] text-white/45">
+                        Featured System
+                      </p>
+                      <h2 className="mt-2 text-2xl font-bold">
+                        Dealer Pro Dashboard
+                      </h2>
                     </div>
-                    <div className="rounded-xl bg-[#3DDB61] px-3 py-2 text-sm font-semibold text-black">Live Demo</div>
+                    <div className="rounded-xl bg-[#3DDB61] px-3 py-2 text-sm font-semibold text-black">
+                      Live Demo
+                    </div>
                   </div>
 
                   <div className="mt-5 grid gap-4 sm:grid-cols-3">
@@ -211,10 +252,15 @@ export default function NeoEvoWebsite() {
                         ["2017 Honda Civic", "$15,900", "Active"],
                         ["2019 Toyota Camry", "$19,800", "Active"],
                       ].map(([vehicle, price, status]) => (
-                        <div key={vehicle} className="flex items-center justify-between rounded-xl border border-white/10 bg-black/20 px-4 py-3">
+                        <div
+                          key={vehicle}
+                          className="flex items-center justify-between rounded-xl border border-white/10 bg-black/20 px-4 py-3"
+                        >
                           <div>
                             <p className="font-medium">{vehicle}</p>
-                            <p className="text-sm text-white/50">Inventory item</p>
+                            <p className="text-sm text-white/50">
+                              Inventory item
+                            </p>
                           </div>
                           <div className="text-right">
                             <p className="font-semibold">{price}</p>
@@ -232,17 +278,25 @@ export default function NeoEvoWebsite() {
 
         <section id="services" className="mx-auto max-w-7xl px-6 py-20">
           <div className="max-w-2xl">
-            <p className="text-sm uppercase tracking-[0.35em] text-[#3DDB61]">Services</p>
-            <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">Built for businesses that want more than just a basic site.</h2>
+            <p className="text-sm uppercase tracking-[0.35em] text-[#3DDB61]">
+              Services
+            </p>
+            <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
+              Built for businesses that want more than just a basic site.
+            </h2>
             <p className="mt-5 text-lg text-white/65">
-              Start with a clean online presence, then grow into systems that help you manage leads,
-              inventory, payments, and customer communication.
+              Start with a clean online presence, then grow into systems that
+              help you manage leads, inventory, payments, and customer
+              communication.
             </p>
           </div>
 
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {services.map((service) => (
-              <div key={service.title} className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
+              <div
+                key={service.title}
+                className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm"
+              >
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#3DDB61]/15 text-xl font-bold text-[#3DDB61]">
                   +
                 </div>
@@ -256,10 +310,15 @@ export default function NeoEvoWebsite() {
         <section id="offers" className="border-y border-white/10 bg-white/5">
           <div className="mx-auto max-w-7xl px-6 py-20">
             <div className="max-w-2xl">
-              <p className="text-sm uppercase tracking-[0.35em] text-[#3DDB61]">Offers</p>
-              <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">Choose the level of control you want.</h2>
+              <p className="text-sm uppercase tracking-[0.35em] text-[#3DDB61]">
+                Offers
+              </p>
+              <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
+                Choose the level of control you want.
+              </h2>
               <p className="mt-5 text-lg text-white/65">
-                NeoEvo is structured so businesses can start simple, then upgrade into more advanced systems when needed.
+                NeoEvo is structured so businesses can start simple, then
+                upgrade into more advanced systems when needed.
               </p>
             </div>
 
@@ -272,7 +331,9 @@ export default function NeoEvoWebsite() {
                   <div className="flex items-center justify-between">
                     <h3 className="text-2xl font-bold">{offer.name}</h3>
                     {offer.featured && (
-                      <span className="rounded-full bg-[#3DDB61] px-3 py-1 text-xs font-semibold text-black">Most Popular</span>
+                      <span className="rounded-full bg-[#3DDB61] px-3 py-1 text-xs font-semibold text-black">
+                        Most Popular
+                      </span>
                     )}
                   </div>
                   <p className="mt-5 text-4xl font-bold">{offer.price}</p>
@@ -299,17 +360,25 @@ export default function NeoEvoWebsite() {
         <section id="work" className="mx-auto max-w-7xl px-6 py-20">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
-              <p className="text-sm uppercase tracking-[0.35em] text-[#3DDB61]">Work</p>
-              <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">Demo systems built to open doors and close deals.</h2>
+              <p className="text-sm uppercase tracking-[0.35em] text-[#3DDB61]">
+                Work
+              </p>
+              <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
+                Demo systems built to open doors and close deals.
+              </h2>
             </div>
             <p className="max-w-xl text-white/65">
-              NeoEvo presents polished demos that help business owners quickly understand what’s possible before moving into custom setup.
+              NeoEvo presents polished demos that help business owners quickly
+              understand what’s possible before moving into custom setup.
             </p>
           </div>
 
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {projects.map((project) => (
-              <div key={project.title} className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+              <div
+                key={project.title}
+                className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
+              >
                 <div className="mb-5 aspect-[16/10] rounded-2xl border border-white/10 bg-gradient-to-br from-[#0f181a] via-[#101a25] to-[#071017] p-5">
                   <div className="grid grid-cols-3 gap-3">
                     <div className="rounded-xl bg-white/10 p-3" />
@@ -331,15 +400,25 @@ export default function NeoEvoWebsite() {
         <section id="contact" className="border-t border-white/10 bg-[#050b10]">
           <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-2">
             <div>
-              <p className="text-sm uppercase tracking-[0.35em] text-[#3DDB61]">Contact</p>
-              <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">Let’s build something clean, modern, and profitable.</h2>
+              <p className="text-sm uppercase tracking-[0.35em] text-[#3DDB61]">
+                Contact
+              </p>
+              <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
+                Let’s build something clean, modern, and profitable.
+              </h2>
               <p className="mt-5 max-w-2xl text-lg text-white/65">
-                Whether you need a simple website or a more advanced business system, NeoEvo is built to help you start strong and scale later.
+                Whether you need a simple website or a more advanced business
+                system, NeoEvo is built to help you start strong and scale
+                later.
               </p>
             </div>
 
             <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
-              <form ref={formRef} className="grid gap-5" onSubmit={handleSubmit}>
+              <form
+                ref={formRef}
+                className="grid gap-5"
+                onSubmit={handleSubmit}
+              >
                 <input
                   name="name"
                   placeholder="Your name"
@@ -362,21 +441,73 @@ export default function NeoEvoWebsite() {
                 >
                   {loading ? "Sending..." : "Submit Request"}
                 </button>
-                <a
-                  href="https://calendly.com/neoevo-info/15-minute-quick-demo"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-2xl bg-[#3DDB61] px-6 py-3 text-center font-semibold text-black"
-                >
-                  Book a Demo Call
-                </a>
+                <div className="grid gap-3 sm:grid-cols-3">
+                  <a
+                    href={contactLinks.calendly}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-2xl bg-[#3DDB61] px-6 py-3 text-center font-semibold text-black transition hover:scale-[1.02] hover:opacity-90"
+                  >
+                    Book a Demo
+                  </a>
+
+                  <a
+                    href={contactLinks.sms}
+                    className="rounded-2xl border border-white/15 bg-white/5 px-6 py-3 text-center font-semibold text-white transition hover:bg-white hover:text-black"
+                  >
+                    Text Us
+                  </a>
+
+                  <a
+                    href={contactLinks.whatsapp}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-2xl border border-[#3DDB61]/30 bg-[#3DDB61]/10 px-6 py-3 text-center font-semibold text-[#3DDB61] transition hover:bg-[#3DDB61] hover:text-black"
+                  >
+                    WhatsApp
+                  </a>
+                </div>
+                <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-white/60">
+                  <a
+                    href={contactLinks.messenger}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="transition hover:text-white"
+                  >
+                    Messenger
+                  </a>
+
+                  <a
+                    href={contactLinks.email}
+                    className="transition hover:text-white"
+                  >
+                    Email
+                  </a>
+
+                  <a
+                    href={contactLinks.instagram}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="transition hover:text-white"
+                  >
+                    Instagram
+                  </a>
+
+                  <a
+                    href={contactLinks.call}
+                    className="transition hover:text-white"
+                  >
+                    Call
+                  </a>
+                </div>
                 {success && (
                   <p className="text-center text-sm text-green-400">
                     Request sent successfully 🚀
                   </p>
                 )}
                 <p className="text-center text-xs text-white/40">
-                  Takes 15 minutes • No commitment • Limited build spots this month
+                  Takes 15 minutes • No commitment • Limited build spots this
+                  month
                 </p>
               </form>
             </div>
@@ -388,16 +519,16 @@ export default function NeoEvoWebsite() {
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-8 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="font-semibold text-[#3DDB61]">NeoEvo</p>
-            <p className="mt-1 text-sm text-white/50">Modern websites and business systems for growing companies.</p>
+            <p className="mt-1 text-sm text-white/50">
+              Modern websites and business systems for growing companies.
+            </p>
           </div>
-          <div className="text-sm text-white/55">
-            neoevo.io
-          </div>
+          <div className="text-sm text-white/55">neoevo.io</div>
         </div>
       </footer>
 
       <a
-        href="https://wa.me/18647149923?text=Hi%20I%20am%20interested%20in%20your%20services"
+        href={contactLinks.whatsapp}
         target="_blank"
         rel="noreferrer"
         className="fixed bottom-6 right-6 z-50 rounded-full bg-[#3DDB61] p-4 shadow-xl shadow-[#3DDB61]/30 transition hover:scale-110"
@@ -405,5 +536,5 @@ export default function NeoEvoWebsite() {
         💬
       </a>
     </div>
-  )
+  );
 }
