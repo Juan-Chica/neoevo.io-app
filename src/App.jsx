@@ -116,7 +116,7 @@ export default function NeoEvoWebsite() {
             <a href="#work" className="transition hover:text-white">Work</a>
             <a href="#contact" className="transition hover:text-white">Contact</a>
             <a
-              href="https://wa.me/18647149926"
+              href="https://wa.me/18647149923?text=Hi%20I%20am%20interested%20in%20your%20services"
               target="_blank"
               rel="noreferrer"
               className="rounded-full border border-[#3DDB61]/30 bg-[#3DDB61]/10 px-4 py-2 font-medium text-[#3DDB61] transition hover:bg-[#3DDB61] hover:text-black"
@@ -397,7 +397,7 @@ export default function NeoEvoWebsite() {
       </footer>
 
       <a
-        href="https://wa.me/18647149926"
+        href="https://wa.me/18647149923?text=Hi%20I%20am%20interested%20in%20your%20services"
         target="_blank"
         rel="noreferrer"
         className="fixed bottom-6 right-6 z-50 rounded-full bg-[#3DDB61] p-4 shadow-xl shadow-[#3DDB61]/30 transition hover:scale-110"
