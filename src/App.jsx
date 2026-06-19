@@ -5,19 +5,19 @@ import Bookings from "./pages/dashboard/Bookings";
 import DashboardLayout from "./layouts/DashboardLayout";
 import Services from "./pages/dashboard/Services";
 import Availability from "./pages/dashboard/Availability";
-import Settings from "./pages/dashboard/Settings";
+import Settings from "./pages/dashboard/settings";
 import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import DashboardHome from "./pages/dashboard/DashboardHome";
-import Clients from "./pages/Dashboard/Clients";
-import Analytics from "./pages/Dashboard/Analytics";
-import Projects from "./pages/Dashboard/Projects";
-import Notes from "./pages/Dashboard/Notes";
-import Files from "./pages/Dashboard/Files";
-import ClientDetail from "./pages/Dashboard/ClientDetail";
-import Tasks from "./pages/Dashboard/Tasks";
-import Kanban from "./pages/Dashboard/Kanban";
-import Calendar from "./pages/Dashboard/Calendar";
+import Clients from "./pages/dashboard/Clients";
+import Analytics from "./pages/dashboard/Analytics";
+import Projects from "./pages/dashboard/Projects";
+import Notes from "./pages/dashboard/Notes";
+import Files from "./pages/dashboard/Files";
+import ClientDetail from "./pages/dashboard/ClientDetail";
+import Tasks from "./pages/dashboard/Tasks";
+import Kanban from "./pages/dashboard/Kanban";
+import Calendar from "./pages/dashboard/Calendar";
 
 
 export default function App() {
