@@ -5,7 +5,7 @@ import Bookings from "./pages/dashboard/Bookings";
 import DashboardLayout from "./layouts/DashboardLayout";
 import Services from "./pages/dashboard/Services";
 import Availability from "./pages/dashboard/Availability";
-import Settings from "./pages/dashboard/settings";
+import Settings from "./pages/dashboard/Settings";
 import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import DashboardHome from "./pages/dashboard/DashboardHome";
