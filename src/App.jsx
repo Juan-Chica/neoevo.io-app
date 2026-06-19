@@ -5,9 +5,9 @@ import Bookings from "./pages/Dashboard/Bookings";
 import DashboardLayout from "./layouts/DashboardLayout";
 import Services from "./pages/Dashboard/Services";
 import Availability from "./pages/Dashboard/Availability";
-import Settings from "./pages/Dashboard/Settings";
+import Settings from "./pages/Dashboard/settings";
 import Login from "./pages/Login";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./Components/ProtectedRoute";
 import DashboardHome from "./pages/Dashboard/DashboardHome";
 import Clients from "./pages/Dashboard/Clients";
 import Analytics from "./pages/Dashboard/Analytics";
@@ -18,7 +18,6 @@ import ClientDetail from "./pages/Dashboard/ClientDetail";
 import Tasks from "./pages/Dashboard/Tasks";
 import Kanban from "./pages/Dashboard/Kanban";
 import Calendar from "./pages/Dashboard/Calendar";
-
 
 export default function App() {
   return (
