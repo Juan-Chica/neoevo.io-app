@@ -1,23 +1,23 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Book from "./pages/Book";
-import Bookings from "./pages/dashboard/Bookings";
+import Bookings from "./pages/Dashboard/Bookings";
 import DashboardLayout from "./layouts/DashboardLayout";
-import Services from "./pages/dashboard/Services";
-import Availability from "./pages/dashboard/Availability";
-import Settings from "./pages/dashboard/Settings";
+import Services from "./pages/Dashboard/Services";
+import Availability from "./pages/Dashboard/Availability";
+import Settings from "./pages/Dashboard/Settings";
 import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
-import DashboardHome from "./pages/dashboard/DashboardHome";
-import Clients from "./pages/dashboard/Clients";
-import Analytics from "./pages/dashboard/Analytics";
-import Projects from "./pages/dashboard/Projects";
-import Notes from "./pages/dashboard/Notes";
-import Files from "./pages/dashboard/Files";
-import ClientDetail from "./pages/dashboard/ClientDetail";
-import Tasks from "./pages/dashboard/Tasks";
-import Kanban from "./pages/dashboard/Kanban";
-import Calendar from "./pages/dashboard/Calendar";
+import DashboardHome from "./pages/Dashboard/DashboardHome";
+import Clients from "./pages/Dashboard/Clients";
+import Analytics from "./pages/Dashboard/Analytics";
+import Projects from "./pages/Dashboard/Projects";
+import Notes from "./pages/Dashboard/Notes";
+import Files from "./pages/Dashboard/Files";
+import ClientDetail from "./pages/Dashboard/ClientDetail";
+import Tasks from "./pages/Dashboard/Tasks";
+import Kanban from "./pages/Dashboard/Kanban";
+import Calendar from "./pages/Dashboard/Calendar";
 
 
 export default function App() {
