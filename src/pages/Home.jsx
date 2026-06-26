@@ -162,6 +162,53 @@ export default function HomePage() {
         </div>
       </header>
 
+      {menuOpen && (
+       <div className="border-b border-gray-200 bg-white px-6 py-5 md:hidden">
+        <div className="flex flex-col gap-4 text-lg font-semibold">
+
+          <a href="#services" onClick={() => setMenuOpen(false)}>
+            Services
+          </a>
+
+          <a href="#offers" onClick={() => setMenuOpen(false)}>
+           Offers
+          </a>
+
+          <a href="#work" onClick={() => setMenuOpen(false)}>
+           Work
+          </a>
+
+          <a href="#contact" onClick={() => setMenuOpen(false)}>
+           Contact
+          </a>
+
+          <a
+           href="https://nevodrive.com"
+           target="_blank"
+           rel="noopener noreferrer"
+           className="rounded-xl bg-[#0A84FF] px-4 py-3 text-center text-white"
+          >
+           🚗 Live Dealer Demo
+          </a>
+
+          <a
+           href="/login"
+           className="rounded-xl border border-[#0A84FF] px-4 py-3 text-center text-[#0A84FF]"
+          >
+           Portal
+          </a>
+
+          <a
+           href="/book"
+           className="rounded-xl bg-[#111827] px-4 py-3 text-center text-white"
+          >
+           Book Consultation
+          </a>
+
+        </div>
+       </div>
+      )}
+
       <main>
         <section className="relative overflow-hidden border-b border-gray-200 bg-[#FFFFFF]">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(10,132,255,0.15),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(239,68,68,0.08),transparent_40%)]" />
