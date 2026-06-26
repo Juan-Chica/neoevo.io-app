@@ -1,11 +1,13 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import logo from "../assets/NeoEvo-logo.png";
+import { link } from "react-router-dom";
 
 export default function HomePage() {
   const formRef = useRef(null);
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const services = [
     {
@@ -151,6 +153,12 @@ export default function HomePage() {
               WhatsApp
             </a>
           </nav>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="rounded-xl border border-gray-200 px-4 py-2 text-2xl font-bold text-[#111827] md:hidden"
+          >
+             ☰
+          </button>
         </div>
       </header>
 
