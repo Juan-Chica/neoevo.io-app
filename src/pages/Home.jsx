@@ -225,16 +225,24 @@ export default function HomePage() {
                   <div className="flex items-center justify-between border-b border-white/10 pb-4">
                     <div>
                       <p className="text-sm uppercase tracking-[0.3em] text-[#6B7280]">
-                        Featured System
+                        Featured Demo
                       </p>
                       <h2 className="mt-2 text-2xl font-bold text-[#111827]">
-                        Dealer Pro Dashboard
+                        Live Dealer Demo
                       </h2>
+                      <p className="mt-2 text-sm text-[#6B7280]">
+                        A complete dealership website and management system.
+                      </p> 
                     </div>
 
-                    <div className="rounded-xl bg-[#0A84FF] px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-[#0A84FF]/25">
-                      Live Demo
-                    </div>
+                    <a
+                      href="https://nevodrive.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-xl bg-[#0A84FF] px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-[#0A84FF]/25"
+                    >
+                      Live Demo →
+                    </a>
                   </div>
 
                   <div className="mt-5 grid gap-4 sm:grid-cols-3">
