@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import logo from "../assets/NeoEvo-logo.png";
-import { link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   const formRef = useRef(null);
