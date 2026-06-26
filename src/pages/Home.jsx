@@ -163,8 +163,8 @@ export default function HomePage() {
       </header>
 
       {menuOpen && (
-       <div className="border-b border-gray-200 bg-white px-6 py-5 md:hidden">
-        <div className="flex flex-col gap-4 text-lg font-semibold">
+       <div className="fixed left-0 right-0 top-[96px] z-50 border-b border-gray-200 bg-white px-6 py-5 shadow-xl md:hidden">
+        <div className="flex flex-col gap-4 text-lg font-semibold text-[#111827]">
 
           <a href="#services" onClick={() => setMenuOpen(false)}>
             Services
