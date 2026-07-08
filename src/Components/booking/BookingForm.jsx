@@ -196,8 +196,34 @@ export default function BookingForm() {
       return;
     }
 
+    const selectedService = services.find(
+      (service) => service.id === form.service_id,
+    );
+
+    const { error: emailError } = await supabase.functions.invoke(
+      "send-booking-email",
+      {
+        body: {
+          customerName: form.customer_name,
+          customerEmail: form.customer_email,
+          serviceName: selectedService?.name || "NeoEvo Consultation",
+          bookingDate: form.booking_date,
+          bookingTime: form.booking_time,
+          notes: form.notes,
+        },
+      },
+    );
+
+    if (emailError) {
+      console.error("Email confirmation error:", emailError);
+      setMessage(
+        "Appointment booked, but the confirmation email could not be sent.",
+      );
+      return;
+    }
+
     console.log("Booking created:", data);
-    setMessage("Appointment booked successfully!");
+    setMessage("Appointment booked successfully! Confirmation email sent.");
 
     setForm({
       service_id: "",
