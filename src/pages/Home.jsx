@@ -2,6 +2,9 @@ import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import logo from "../assets/NeoEvo-logo.png";
 import { Link } from "react-router-dom";
+import dealerWebsite from "../assets/work/dealer-website.png";
+import dealerDashboard from "../assets/work/dealer-dashboard.png";
+import businessStack from "../assets/work/business-stack.png";
 
 export default function HomePage() {
   const formRef = useRef(null);
@@ -65,14 +68,20 @@ export default function HomePage() {
     {
       title: "Dealer Website Demo",
       subtitle: "Modern inventory-focused automotive site",
+      image: dealerWebsite,
+      link: "https://nevodrive.com",
     },
     {
       title: "Dealer Pro System",
       subtitle: "Login, dashboard, leads, and management flow",
+      image: dealerDashboard,
+      link: "/login",
     },
     {
       title: "Business Growth Stack",
       subtitle: "Chat, payments, and premium conversion features",
+      image: businessStack,
+      link: "/book",
     },
   ];
 
@@ -157,56 +166,54 @@ export default function HomePage() {
             onClick={() => setMenuOpen(!menuOpen)}
             className="rounded-xl border border-gray-200 px-4 py-2 text-2xl font-bold text-[#111827] md:hidden"
           >
-             ☰
+            ☰
           </button>
         </div>
       </header>
 
       {menuOpen && (
-       <div className="fixed left-0 right-0 top-[96px] z-50 border-b border-gray-200 bg-white px-6 py-5 shadow-xl md:hidden">
-        <div className="flex flex-col gap-4 text-lg font-semibold text-[#111827]">
+        <div className="fixed left-0 right-0 top-[96px] z-50 border-b border-gray-200 bg-white px-6 py-5 shadow-xl md:hidden">
+          <div className="flex flex-col gap-4 text-lg font-semibold text-[#111827]">
+            <a href="#services" onClick={() => setMenuOpen(false)}>
+              Services
+            </a>
 
-          <a href="#services" onClick={() => setMenuOpen(false)}>
-            Services
-          </a>
+            <a href="#offers" onClick={() => setMenuOpen(false)}>
+              Offers
+            </a>
 
-          <a href="#offers" onClick={() => setMenuOpen(false)}>
-           Offers
-          </a>
+            <a href="#work" onClick={() => setMenuOpen(false)}>
+              Work
+            </a>
 
-          <a href="#work" onClick={() => setMenuOpen(false)}>
-           Work
-          </a>
+            <a href="#contact" onClick={() => setMenuOpen(false)}>
+              Contact
+            </a>
 
-          <a href="#contact" onClick={() => setMenuOpen(false)}>
-           Contact
-          </a>
+            <a
+              href="https://nevodrive.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-xl bg-[#0A84FF] px-4 py-3 text-center text-white"
+            >
+              🚗 Live Dealer Demo
+            </a>
 
-          <a
-           href="https://nevodrive.com"
-           target="_blank"
-           rel="noopener noreferrer"
-           className="rounded-xl bg-[#0A84FF] px-4 py-3 text-center text-white"
-          >
-           🚗 Live Dealer Demo
-          </a>
+            <a
+              href="/login"
+              className="rounded-xl border border-[#0A84FF] px-4 py-3 text-center text-[#0A84FF]"
+            >
+              Portal
+            </a>
 
-          <a
-           href="/login"
-           className="rounded-xl border border-[#0A84FF] px-4 py-3 text-center text-[#0A84FF]"
-          >
-           Portal
-          </a>
-
-          <a
-           href="/book"
-           className="rounded-xl bg-[#111827] px-4 py-3 text-center text-white"
-          >
-           Book Consultation
-          </a>
-
+            <a
+              href="/book"
+              className="rounded-xl bg-[#111827] px-4 py-3 text-center text-white"
+            >
+              Book Consultation
+            </a>
+          </div>
         </div>
-       </div>
       )}
 
       <main>
@@ -287,7 +294,7 @@ export default function HomePage() {
                       </h2>
                       <p className="mt-2 text-sm text-[#6B7280]">
                         A complete dealership website and management system.
-                      </p> 
+                      </p>
                     </div>
 
                     <a
@@ -486,18 +493,17 @@ export default function HomePage() {
                 key={project.title}
                 className="rounded-3xl border border-gray-200 bg-white p-6 shadow-md"
               >
-                <div className="mb-5 aspect-[16/10] rounded-2xl border border-gray-200 bg-gradient-to-br from-[#F8FAFC] via-[#EEF4FF] to-[#FFF5F5] p-5">
-                  <div className="grid grid-cols-3 gap-3">
-                    <div className="rounded-xl bg-white/10 p-3" />
-                    <div className="rounded-xl bg-white/10 p-3" />
-                    <div className="rounded-xl bg-white/10 p-3" />
-                  </div>
-
-                  <div className="mt-4 rounded-2xl bg-white/5 p-4">
-                    <div className="h-4 w-2/3 rounded bg-white/10" />
-                    <div className="mt-3 h-20 rounded-xl bg-white/10" />
-                  </div>
-                </div>
+                <a
+                  href={project.link}
+                  target={project.link.startsWith("http") ? "_blank" : "_self"}
+                  rel="noreferrer"
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="mb-5 aspect-[16/10] w-full rounded-2xl border border-gray-200 object-cover shadow-md transition duration-300 hover:scale-[1.02]"
+                  />
+                </a>
 
                 <h3 className="text-2xl font-bold text-[#111827]">
                   {project.title}
