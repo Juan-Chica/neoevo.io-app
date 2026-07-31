@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import logo from "../assets/NeoEvo-logo.png";
-import { Link } from "react-router-dom";
 import dealerWebsite from "../assets/work/dealer-website.png";
 import dealerDashboard from "../assets/work/dealer-dashboard.png";
 import businessStack from "../assets/work/business-stack.png";
@@ -120,8 +119,8 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FFFFFF] text-[#111827]">
-      <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-xl">
+    <div className="min-h-screen bg-white text-[#111827]">
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#080C12]">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-4">
             <img
@@ -131,26 +130,26 @@ export default function HomePage() {
             />
 
             <div>
-              <p className="text-xl font-semibold tracking-wide text-[#111827] md:text-2xl">
+              <p className="text-xl font-semibold tracking-wide text-white md:text-2xl">
                 NeoEvo
               </p>
-              <p className="text-xs text-[#6B7280] md:text-sm">
+              <p className="text-xs text-gray-400 md:text-sm">
                 Digital Systems for Growing Businesses
               </p>
             </div>
           </div>
 
-          <nav className="hidden items-center gap-8 text-sm text-[#6B7280] md:flex">
-            <a href="#services" className="transition hover:text-[#111827]">
+          <nav className="hidden items-center gap-8 text-sm text-gray-300 md:flex">
+            <a href="#services" className="transition hover:text-white">
               Services
             </a>
-            <a href="#offers" className="transition hover:text-[#111827]">
+            <a href="#offers" className="transition hover:text-white">
               Offers
             </a>
-            <a href="#work" className="transition hover:text-[#111827]">
+            <a href="#work" className="transition hover:text-white">
               Work
             </a>
-            <a href="#contact" className="transition hover:text-[#111827]">
+            <a href="#contact" className="transition hover:text-white">
               Contact
             </a>
             <a
@@ -162,9 +161,13 @@ export default function HomePage() {
               WhatsApp
             </a>
           </nav>
+
           <button
+            type="button"
             onClick={() => setMenuOpen(!menuOpen)}
-            className="rounded-xl border border-gray-200 px-4 py-2 text-2xl font-bold text-[#111827] md:hidden"
+            className="rounded-xl border border-white/20 px-4 py-2 text-2xl font-bold text-white md:hidden"
+            aria-label="Toggle navigation menu"
+            aria-expanded={menuOpen}
           >
             ☰
           </button>
@@ -217,155 +220,45 @@ export default function HomePage() {
       )}
 
       <main>
-        <section className="relative overflow-hidden border-b border-gray-200 bg-[#FFFFFF]">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(10,132,255,0.15),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(239,68,68,0.08),transparent_40%)]" />
+        <section
+          className="relative min-h-[620px] overflow-hidden border-b border-gray-200 bg-cover bg-center bg-no-repeat md:min-h-[720px]"
+          style={{
+            backgroundImage: "url('/neoevo-office-banner.png')",
+          }}
+        >
+          <div className="absolute inset-0 bg-black/55" />
 
-          <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28">
-            <div className="grid items-center gap-14 lg:grid-cols-2">
-              <div>
-                <p className="text-sm uppercase tracking-[0.35em] text-[#0A84FF]">
-                  NEOEVO.IO
-                </p>
+          <div className="relative z-10 mx-auto flex min-h-[620px] max-w-7xl items-center justify-center px-6 py-20 text-center md:min-h-[720px]">
+            <div className="max-w-4xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#0A84FF]">
+                We build digital systems
+              </p>
 
-                <h1 className="mt-5 max-w-3xl text-5xl font-bold leading-[0.95] tracking-tight text-[#111827] md:text-7xl">
-                  Websites and systems built to make businesses look modern and
-                  grow faster.
-                </h1>
+              <h1 className="mt-5 text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl md:text-7xl">
+                Digital Systems for Growing{" "}
+                <span className="text-[#0A84FF]">Businesses.</span>
+              </h1>
 
-                <p className="mt-6 max-w-2xl text-lg leading-8 text-[#6B7280] md:text-xl">
-                  NeoEvo helps service-based businesses launch professional
-                  websites, organize customer leads, and unlock smarter digital
-                  tools over time.
-                </p>
+              <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-gray-200 sm:text-lg md:text-xl">
+                Websites, automation, and business systems designed to help you
+                attract more customers, close more deals, and scale with
+                confidence.
+              </p>
 
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <a
-                    href="#offers"
-                    className="rounded-xl bg-[#0A84FF] px-6 py-3 font-semibold text-white shadow-lg shadow-[#0A84FF]/20 transition hover:-translate-y-0.5 hover:opacity-90"
-                  >
-                    View Offers
-                  </a>
+              <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <a
+                  href="#offers"
+                  className="w-full rounded-xl bg-[#0A84FF] px-7 py-3.5 font-semibold text-white shadow-lg shadow-[#0A84FF]/25 transition hover:-translate-y-0.5 hover:opacity-90 sm:w-auto"
+                >
+                  Explore Packages
+                </a>
 
-                  <a
-                    href={contactLinks.booking}
-                    className="rounded-xl border border-gray-300 bg-white px-6 py-3 font-semibold text-[#111827] shadow-sm transition hover:bg-gray-50"
-                  >
-                    Book Consultation
-                  </a>
-                </div>
-
-                <div className="mt-10 grid gap-4 sm:grid-cols-3">
-                  <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-md">
-                    <p className="text-2xl font-bold text-[#0A84FF]">Fast</p>
-                    <p className="mt-2 text-sm text-[#6B7280]]">
-                      Launch quickly with clean, high-conversion websites.
-                    </p>
-                  </div>
-
-                  <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-md">
-                    <p className="text-2xl font-bold text-[#0A84FF]">
-                      Scalable
-                    </p>
-                    <p className="mt-2 text-sm text-[#6B7280]">
-                      Start simple and expand into systems, payments, and
-                      automation.
-                    </p>
-                  </div>
-
-                  <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-md">
-                    <p className="text-2xl font-bold text-[#0A84FF]">Focused</p>
-                    <p className="mt-2 text-sm text-[#6B7280]]">
-                      Built for businesses that want more leads and more
-                      control.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="rounded-[2rem] border border-gray-200 bg-white/90 p-5 shadow-xl shadow-[#0A84FF]/10 backdrop-blur-2xl">
-                <div className="rounded-[1.5rem] border border-gray-200 bg-[#F9FAFB] p-6">
-                  <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                    <div>
-                      <p className="text-sm uppercase tracking-[0.3em] text-[#6B7280]">
-                        Featured Demo
-                      </p>
-                      <h2 className="mt-2 text-2xl font-bold text-[#111827]">
-                        Live Dealer Demo
-                      </h2>
-                      <p className="mt-2 text-sm text-[#6B7280]">
-                        A complete dealership website and management system.
-                      </p>
-                    </div>
-
-                    <a
-                      href="https://nevodrive.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="rounded-xl bg-[#0A84FF] px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-[#0A84FF]/25"
-                    >
-                      Live Demo →
-                    </a>
-                  </div>
-
-                  <div className="mt-5 grid gap-4 sm:grid-cols-3">
-                    <div className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
-                      <p className="text-sm text-[#6B7280]">Vehicles</p>
-                      <p className="mt-2 text-3xl font-bold text-[#111827]">
-                        24
-                      </p>
-                    </div>
-                    <div className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
-                      <p className="text-sm text-[#6B7280]">Leads</p>
-                      <p className="mt-2 text-3xl font-bold text-[#111827]">
-                        12
-                      </p>
-                    </div>
-                    <div className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
-                      <p className="text-sm text-[#6B7280]">Updates</p>
-                      <p className="mt-2 text-3xl font-bold text-[#111827]">
-                        3
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="mt-5 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
-                    <div className="mb-4 flex items-center justify-between">
-                      <p className="text-lg font-semibold text-[#111827]">
-                        Inventory Preview
-                      </p>
-                      <span className="text-sm text-[#0A84FF]">Manage</span>
-                    </div>
-
-                    <div className="space-y-3">
-                      {[
-                        ["2018 BMW 430i", "$22,500", "Active"],
-                        ["2017 Honda Civic", "$15,900", "Active"],
-                        ["2019 Toyota Camry", "$19,800", "Active"],
-                      ].map(([vehicle, price, status]) => (
-                        <div
-                          key={vehicle}
-                          className="flex items-center justify-between rounded-xl border border-gray-200 bg-[#F9FAFB] px-4 py-3"
-                        >
-                          <div>
-                            <p className="font-medium text-[#111827]">
-                              {vehicle}
-                            </p>
-                            <p className="text-sm text-[#6B7280]">
-                              Inventory item
-                            </p>
-                          </div>
-
-                          <div className="text-right">
-                            <p className="font-semibold text-[#111827]">
-                              {price}
-                            </p>
-                            <p className="text-sm text-[#0A84FF]">{status}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                <a
+                  href={contactLinks.booking}
+                  className="w-full rounded-xl border border-white/40 bg-black/35 px-7 py-3.5 font-semibold text-white transition hover:bg-white hover:text-[#111827] sm:w-auto"
+                >
+                  Book a Call
+                </a>
               </div>
             </div>
           </div>
@@ -514,7 +407,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="contact" className="border-t border-gray-200 bg-[#FFFFFF]">
+        <section id="contact" className="border-t border-gray-200 bg-white">
           <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-2">
             <div>
               <p className="text-sm uppercase tracking-[0.35em] text-[#0A84FF]">
@@ -640,7 +533,7 @@ export default function HomePage() {
         </section>
       </main>
 
-      <footer className="border-t border-gray-200 bg-[#FFFFFF]">
+      <footer className="border-t border-gray-200 bg-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-8 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="font-semibold text-[#111827]">NeoEvo</p>
@@ -658,6 +551,7 @@ export default function HomePage() {
         target="_blank"
         rel="noreferrer"
         className="fixed bottom-6 right-6 z-50 rounded-full bg-[#EF4444] p-4 text-white shadow-xl shadow-[#EF4444]/20 transition hover:scale-110"
+        aria-label="Open WhatsApp chat"
       >
         💬
       </a>
