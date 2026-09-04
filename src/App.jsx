@@ -18,6 +18,7 @@ import ClientDetail from "./pages/Dashboard/ClientDetail";
 import Tasks from "./pages/Dashboard/Tasks";
 import Kanban from "./pages/Dashboard/Kanban";
 import Calendar from "./pages/Dashboard/Calendar";
+import Office from "./pages/Office";
 
 export default function App() {
   return (
@@ -50,9 +51,11 @@ export default function App() {
           <Route path="tasks" element={<Tasks />} />
           <Route path="kanban" element={<Kanban />} />
           <Route path="calendar" element={<Calendar />} />
+
         </Route>
 
         <Route path="/login" element={<Login />} />
+        <Route path="/office" element={<Office />} />
       </Routes>
     </BrowserRouter>
   );

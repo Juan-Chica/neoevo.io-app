@@ -153,12 +153,10 @@ export default function HomePage() {
               Contact
             </a>
             <a
-              href={contactLinks.whatsapp}
-              target="_blank"
-              rel="noreferrer"
+              href={contactLinks.sms}
               className="rounded-full border border-[#0A84FF]/20 bg-[#0A84FF] px-4 py-2 font-medium text-white shadow-md shadow-[#0A84FF]/20 transition hover:opacity-90"
             >
-              WhatsApp
+              Message Us
             </a>
           </nav>
 
@@ -533,25 +531,120 @@ export default function HomePage() {
         </section>
       </main>
 
-      <footer className="border-t border-gray-200 bg-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-8 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="font-semibold text-[#111827]">NeoEvo</p>
-            <p className="mt-1 text-sm text-[#6B7280]">
-              Modern websites and business systems for growing companies.
-            </p>
+      <footer className="border-t border-gray-200 bg-[#F8FAFC]">
+        <div className="mx-auto max-w-7xl px-6 py-12">
+          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+            <div className="lg:col-span-2">
+              <div className="flex items-center gap-4">
+                <img
+                  src={logo}
+                  alt="NeoEvo logo"
+                  className="h-14 w-auto object-contain"
+                />
+
+                <div>
+                  <p className="text-xl font-bold text-[#111827]">NeoEvo</p>
+
+                  <p className="text-sm font-medium text-[#0A84FF]">
+                    Digital Systems for Growing Businesses
+                  </p>
+                </div>
+              </div>
+
+              <p className="mt-5 max-w-xl text-sm leading-6 text-[#6B7280]">
+                NeoEvo helps local businesses grow with modern websites,
+                business systems, automation, lead management, and digital
+                experiences designed to generate more opportunities.
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href={contactLinks.booking}
+                  className="rounded-xl bg-[#0A84FF] px-4 py-2.5 text-sm font-semibold text-white"
+                >
+                  Book Consultation
+                </a>
+
+                <a
+                  href={contactLinks.sms}
+                  className="rounded-xl border border-[#0A84FF]/30 bg-white px-4 py-2.5 text-sm font-semibold text-[#0A84FF]"
+                >
+                  Message Us
+                </a>
+                
+              </div>
+            </div>
+
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#111827]">
+                What We Build
+              </p>
+
+              <div className="mt-4 flex flex-col gap-3 text-sm text-[#6B7280]">
+                <a href="#services" className="hover:text-[#0A84FF]">
+                  Business Websites
+                </a>
+
+                <a href="#services" className="hover:text-[#0A84FF]">
+                  Business Systems
+                </a>
+
+                <a href="#services" className="hover:text-[#0A84FF]">
+                  AI & Automation
+                </a>
+
+                <a href="#work" className="hover:text-[#0A84FF]">
+                  Dealer Solutions
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#111827]">
+                Connect
+              </p>
+
+              <div className="mt-4 flex flex-col gap-3 text-sm text-[#6B7280]">
+                <a href={contactLinks.email} className="hover:text-[#0A84FF]">
+                  info@neoevo.io
+                </a>
+
+                <a href={contactLinks.call} className="hover:text-[#0A84FF]">
+                  Call NeoEvo
+                </a>
+
+                <a
+                  href={contactLinks.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-[#0A84FF]"
+                >
+                  Instagram
+                </a>
+
+                <a
+                  href={contactLinks.messenger}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-[#0A84FF]"
+                >
+                  Messenger
+                </a>
+              </div>
+            </div>
           </div>
 
-          <div className="text-sm text-[#6B7280]">neoevo.io</div>
+          <div className="mt-10 flex flex-col gap-3 border-t border-gray-200 pt-6 text-sm text-[#6B7280] sm:flex-row sm:items-center sm:justify-between">
+            <p>© 2026 NeoEvo LLC. All rights reserved.</p>
+            <p>neoevo.io</p>
+          </div>
         </div>
       </footer>
 
       <a
-        href={contactLinks.whatsapp}
-        target="_blank"
-        rel="noreferrer"
-        className="fixed bottom-6 right-6 z-50 rounded-full bg-[#EF4444] p-4 text-white shadow-xl shadow-[#EF4444]/20 transition hover:scale-110"
-        aria-label="Open WhatsApp chat"
+        href={contactLinks.sms}
+        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#0A84FF] text-2xl text-white shadow-xl shadow-[#0A84FF]/25 transition hover:scale-110"
+        aria-label="Send NeoEvo a message"
       >
         💬
       </a>
