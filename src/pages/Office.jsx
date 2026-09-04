@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import OfficeScene from "../Components/office/officeScene";
+import OfficeScene from "../Components/office/OfficeScene";
 
 export default function Office() {
   return (
