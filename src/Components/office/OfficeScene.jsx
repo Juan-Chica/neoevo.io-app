@@ -2,55 +2,32 @@ import OfficeRoom from "./OfficeRoom";
 import Desk from "./Desk";
 import BrandWall from "./BrandWall";
 import LoungeArea from "./LoungeArea";
-import DisplayShelf from "./DisplayShelf";
+import NeoEvoShelf from "./NeoEvoShelf";
+import OfficeLights from "./OfficeLights";
+import LargePlant from "./LargePlant";
 
 export default function OfficeScene() {
   return (
     <>
-      {/* Base ambient light so the room is visible without losing the dark look */}
-      <ambientLight intensity={1.45} />
-
-      {/* Main white key light */}
-      <directionalLight
-        position={[4.5, 8, 7]}
-        intensity={2.8}
-        castShadow
-        shadow-mapSize-width={2048}
-        shadow-mapSize-height={2048}
-      />
-
-      {/* Soft fill light from the front */}
-      <pointLight
-        position={[0, 4.5, 4.5]}
-        intensity={16}
-        distance={18}
-        color="#ffffff"
-      />
-
-      {/* NeoEvo blue accent light for the back wall */}
-      <pointLight
-        position={[2.6, 3, -4.6]}
-        intensity={28}
-        distance={8}
-        color="#0A84FF"
-      />
+      <OfficeLights />
 
       <OfficeRoom />
-
-      {/* Left side lounge */}
       <LoungeArea />
+      <NeoEvoShelf
+        position={[-3.2, 2.8, -5.5]}
+        rotation={[0, 0, 0]}
+        scale={3}
+      />
+      <LargePlant 
+        position={[-5.5, 1.8, -4.5]} 
+        rotation={[0, 0, 0]} 
+        scale={1.6} 
+      />
 
-      {/* Shelf placed between lounge and workstation */}
-      <group position={[-0.9, 0, 0]}>
-        <DisplayShelf />
-      </group>
-
-      {/* Main branding shifted right so it stays visible */}
       <group position={[2.7, 0, 0]}>
         <BrandWall />
       </group>
 
-      {/* Workstation becomes the main focal point on the right */}
       <Desk position={[2.7, 0, -1.15]} />
     </>
   );
