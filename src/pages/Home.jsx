@@ -32,7 +32,7 @@ export default function HomePage() {
   const offers = [
     {
       name: "Starter",
-      price: "$500+",
+      price: "Contact for price",
       features: [
         "Modern website",
         "Mobile-friendly design",
@@ -42,7 +42,7 @@ export default function HomePage() {
     },
     {
       name: "Pro",
-      price: "$1,000+",
+      price: "Contact for price",
       featured: true,
       features: [
         "Everything in Starter",
@@ -53,7 +53,7 @@ export default function HomePage() {
     },
     {
       name: "Premium",
-      price: "$1,500+",
+      price: "Contact for price",
       features: [
         "Everything in Pro",
         "Chat experience",
