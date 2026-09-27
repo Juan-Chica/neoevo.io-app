@@ -7,21 +7,26 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   async function handleLogin(e) {
     e.preventDefault();
-
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-
-    if (error) {
-      setMessage(error.message);
-      return;
+    if (submitting) return;
+    setSubmitting(true);
+    setMessage("");
+    try {
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) {
+        setMessage("Sign-in failed. Check your details and try again.");
+        return;
+      }
+      // ProtectedRoute verifies the live user and staff membership before rendering data.
+      navigate("/dashboard/bookings");
+    } catch {
+      setMessage("Sign-in is temporarily unavailable. Please try again.");
+    } finally {
+      setSubmitting(false);
     }
-
-    navigate("/dashboard/bookings");
   }
 
   return (
@@ -35,6 +40,8 @@ export default function Login() {
 
         <input
           type="email"
+          aria-label="Email"
+          autoComplete="username"
           placeholder="Email"
           className="mt-6 w-full rounded-xl bg-[#071017] border border-white/10 px-4 py-3 text-white"
           value={email}
@@ -44,6 +51,8 @@ export default function Login() {
 
         <input
           type="password"
+          aria-label="Password"
+          autoComplete="current-password"
           placeholder="Password"
           className="mt-4 w-full rounded-xl bg-[#071017] border border-white/10 px-4 py-3 text-white"
           value={password}
@@ -51,8 +60,8 @@ export default function Login() {
           required
         />
 
-        <button className="mt-6 w-full rounded-xl bg-green-400 px-4 py-3 font-semibold text-black">
-          Login
+        <button disabled={submitting} className="mt-6 w-full rounded-xl bg-green-400 px-4 py-3 font-semibold text-black disabled:opacity-40">
+          {submitting ? "Signing in…" : "Login"}
         </button>
 
         {message && <p className="mt-4 text-red-400">{message}</p>}
