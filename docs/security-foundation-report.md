@@ -66,6 +66,8 @@ Managed Storage table grants were not changed. Their object authorization remain
 
 Additional checks: production build passed; security-scoped ESLint passed; both Edge entrypoints passed frozen Deno checks; whitespace checks passed; npm audit reported zero vulnerabilities after compatible fixes. No test sent real email or used production writes.
 
+The draft PR's **Vercel preview failed**. Read-only build-log inspection confirmed the build-time error: missing public Supabase configuration. Configure `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` securely for the appropriate hosting environments before release, then rebuild the preview against the staged backend. Local build validation used the existing public configuration in an ignored file. No hosting settings were changed, and no environment values are included here.
+
 The repository-wide lint command reports **11 pre-existing React effect-rule errors in unchanged dashboard pages**. The production build retains a large-bundle warning. These were not expanded into unrelated dashboard refactors.
 
 Tests use a real embedded PostgreSQL engine with synthetic Auth/Storage fixtures and mocked frontend/provider boundaries. They do not replace staging tests of hosted Auth, PostgREST, Storage, Edge routing, actual concurrent HTTP requests, or real provider delivery.

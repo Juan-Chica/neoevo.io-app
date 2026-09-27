@@ -13,6 +13,8 @@ The branch implements the security model. It does not deploy it. Production reta
 
 Frontend hosting must define `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY`. Use the existing project's public configuration. Build-time checks reject missing configuration and privileged key types. `.env.example` lists only the names; `.env.local` is ignored.
 
+The first draft PR preview failed this required-configuration check, confirmed through read-only Vercel build logs. Configure the preview environment for the isolated staging backend, and the production environment for the approved production cutover. Rebuild and verify after configuration; do not remove the check to make an unconfigured preview pass.
+
 Edge Functions use the platform's server-provided `SUPABASE_URL`, public key, and privileged server key. The runtime supports `SUPABASE_PUBLISHABLE_KEYS` / `SUPABASE_SECRET_KEYS` with the legacy platform-variable fallback. Privileged keys never enter the frontend.
 
 Configure these server-only settings:
