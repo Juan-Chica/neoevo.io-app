@@ -1,22 +1,26 @@
-import OfficeRoom from "./OfficeRoom";
+import { useEffect } from "react";
+import OfficeResourceLifetime from "./OfficeResourceLifetime";
+import FuturisticArchitecture from "./FuturisticArchitecture";
 import Desk from "./Desk";
-import BrandWall from "./BrandWall";
 import LoungeArea from "./LoungeArea";
 import NeoEvoShelf from "./NeoEvoShelf";
-import OfficeLights from "./OfficeLights";
+import FuturisticLights from "./FuturisticLights";
 import LargePlant from "./LargePlant";
 
-export default function OfficeScene() {
+export default function OfficeScene({ updateSession, sessions, interactionReady, onDeskClick, onMonitorClick, onShelfClick, selectedMonitor, highlightedMonitor, onMonitorHover, htmlPortal, onReady }) {
+  useEffect(()=>{onReady?.();},[onReady]);
   return (
     <>
-      <OfficeLights />
+      <OfficeResourceLifetime />
+      <FuturisticLights />
 
-      <OfficeRoom />
+      <FuturisticArchitecture />
       <LoungeArea />
       <NeoEvoShelf
         position={[-3.2, 2.8, -5.5]}
         rotation={[0, 0, 0]}
         scale={3}
+        onClick={onShelfClick}
       />
       <LargePlant 
         position={[-5.5, 1.8, -4.5]} 
@@ -24,11 +28,16 @@ export default function OfficeScene() {
         scale={1.6} 
       />
 
-      <group position={[2.7, 0, 0]}>
-        <BrandWall />
-      </group>
 
-      <Desk position={[2.7, 0, -1.15]} />
+      <Desk sessions={sessions} updateSession={updateSession} interactionReady={interactionReady}
+        position={[2.7, 0, -1.15]}
+        onClick={onDeskClick}
+        onMonitorClick={onMonitorClick}
+        selectedMonitor={selectedMonitor}
+        highlightedMonitor={highlightedMonitor}
+        onMonitorHover={onMonitorHover}
+        htmlPortal={htmlPortal}
+      />
     </>
   );
 }

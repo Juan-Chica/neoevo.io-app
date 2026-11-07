@@ -1,3 +1,4 @@
+import { officeModel, DRACO_PATH } from "./officeAssets";
 import { useGLTF } from "@react-three/drei";
 
 export default function NeoEvoCoffeeTable({
@@ -5,7 +6,7 @@ export default function NeoEvoCoffeeTable({
   rotation = [0, 0, 0],
   scale = 1,
 }) {
-  const { scene } = useGLTF("/models/neoevo-coffee-table.glb");
+  const { scene } = useGLTF(officeModel("neoevo-coffee-table.glb"), DRACO_PATH);
 
   return (
     <primitive
@@ -16,5 +17,3 @@ export default function NeoEvoCoffeeTable({
     />
   );
 }
-
-useGLTF.preload("/models/neoevo-coffee-table.glb");

@@ -1,0 +1,44 @@
+.neoevo-monitor-portal{overflow:clip!important}.monitor-content{box-sizing:border-box;width:600px;height:360px;background:#07121c;color:#edf6fa;padding:30px;font-family:Arial,sans-serif;border:1px solid #4ba6bb;border-radius:4px}.monitor-eyebrow{font-size:13px;letter-spacing:5px;color:#81d3e5}.monitor-content h2{font-size:34px;line-height:1.05;margin:16px 0}.monitor-content p{font-size:17px;line-height:1.4;color:#b9cbd4;margin-bottom:25px}.monitor-destinations{display:grid;grid-template-columns:1fr 1fr;gap:10px}.monitor-destinations a{font-size:16px;text-decoration:none;color:#edf6fa;border:1px solid #456273;border-radius:6px;padding:10px 15px}.monitor-destinations a:hover,.monitor-destinations a:focus-visible{background:#163b4b;outline:2px solid #8ce1ef;outline-offset:2px}
+.monitor-website{padding:10px;display:flex;flex-direction:column;overflow:hidden;border-radius:3px;font-size:16px;line-height:1.4}
+.monitor-website header{flex:none;padding:2px 3px 8px;border-bottom:1px solid #456273}
+.monitor-website .monitor-eyebrow{font-size:12px;letter-spacing:1px}
+.monitor-website nav{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.monitor-website button,.monitor-website a{touch-action:manipulation;cursor:pointer;color:#d9f4fa;border:1px solid #527284;border-radius:4px;padding:7px;display:inline-block;font-size:14px;min-height:32px;background:#102c3c}
+.monitor-website button[aria-current]{background:#23586c;border-color:#b1eff9}
+.monitor-website :is(button,a,input,textarea,[tabindex]):focus-visible{outline:3px solid #b1eff9;outline-offset:2px}
+.monitor-scroll{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y pinch-zoom;padding:8px 5px 14px;scrollbar-gutter:stable}
+.monitor-website h2{font-size:23px;margin:4px 0 12px;line-height:1.2}.monitor-website h3{font-size:18px;margin:4px 0 8px}
+.monitor-website p{font-size:16px;line-height:1.45;margin:8px 0 14px}
+.monitor-website article{padding:12px 0;border-bottom:1px solid #456273;margin-bottom:12px}
+.monitor-website .contact-field label{color:#edf6fa;font-size:15px}.monitor-website .contact-field input,.monitor-website .contact-field textarea{padding:10px;background:#f9fafb;color:#111827;font-size:16px;border-radius:4px;border:1px solid #527284}
+.monitor-website .contact-form{display:grid;gap:14px}.monitor-website .contact-error{color:#ffb4b4}.monitor-website .contact-form a{font-size:14px}.monitor-website .contact-form .grid{display:flex;flex-wrap:wrap;gap:8px}
+
+/* Keep narrow monitor navigation to one row; preserve native horizontal panning. */
+@media(max-width:700px){
+ .monitor-website .monitor-scroll{position:relative;}
+ .monitor-website nav{position:relative;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;touch-action:pan-x pinch-zoom;scrollbar-width:thin;scrollbar-color:#8bd5e5 #102c3c;}
+ .monitor-website nav button{flex:0 0 auto;white-space:nowrap;touch-action:pan-x pinch-zoom;}
+ .monitor-website nav button:focus-visible{outline-offset:-3px;}
+}
+
+/* iOS/WebKit candidate: give the native vertical scroller an auxiliary 1px X range.
+   Keep panning vertical here; the separate navigation owns horizontal gestures. */
+@supports (-webkit-touch-callout: none){
+ .monitor-scroll{overflow-x:scroll;overflow-y:auto;overscroll-behavior-x:none;touch-action:pan-y pinch-zoom;}
+ .monitor-scroll::after{content:"";display:block;box-sizing:content-box;width:calc(100% + 1px);height:1px;pointer-events:none;}
+ .monitor-scroll::-webkit-scrollbar:horizontal{height:0;}
+}
+
+/* The rail owns its reserved column; the existing content remains the only scroller. */
+.monitor-reading-area{display:grid;grid-template-columns:minmax(0,1fr) 28px;gap:4px;flex:1;min-height:0;}
+.monitor-reading-area .monitor-scroll{scrollbar-width:none;scrollbar-gutter:auto;}
+.monitor-reading-area .monitor-scroll::-webkit-scrollbar{width:0;height:0;}
+.monitor-scroll-inner{display:flow-root;min-width:0;}
+.monitor-scrollbar{position:relative;min-height:0;touch-action:none;user-select:none;-webkit-user-select:none;cursor:pointer;border-radius:12px;}
+.monitor-scrollbar:focus-visible{outline:3px solid #b1eff9;outline-offset:-3px;}
+.scrollbar-track{position:absolute;top:2px;bottom:2px;left:calc(50% - 4px);width:8px;background:#112936;border:1px solid #52778a;border-radius:8px;pointer-events:none;}
+.scrollbar-hit{position:absolute;left:0;right:0;cursor:grab;touch-action:none;}
+.scrollbar-hit:active{cursor:grabbing;}
+.scrollbar-thumb{position:absolute;left:calc(50% - 4px);width:8px;background:#6ed9f0;box-shadow:0 0 7px #36badd88;border:1px solid #b1eff9;border-radius:8px;pointer-events:none;}
+.scrollbar-marker{position:absolute;left:50%;width:0;height:0;pointer-events:none;}
+@media(max-width:700px){.monitor-reading-area{grid-template-columns:minmax(0,1fr) 64px;}}

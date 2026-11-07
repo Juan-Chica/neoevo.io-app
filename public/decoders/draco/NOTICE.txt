@@ -1,0 +1,4 @@
+Draco decoder assets are redistributed from the installed Three.js package.
+Upstream project: https://github.com/google/draco
+License: Apache License 2.0 (see Apache-2.0.txt and README.md).
+No additional decoder package was installed.

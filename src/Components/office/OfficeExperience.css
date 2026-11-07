@@ -1,0 +1,87 @@
+.office-experience,.office-experience *{box-sizing:border-box}.office-experience{height:100dvh;min-height:540px;width:100%;background:#05090e;color:#e7f1f6;font-family:Arial,sans-serif;position:relative;overflow:auto}.office-canvas{position:absolute;inset:0}.office-header{position:absolute;z-index:20;top:24px;left:28px;right:28px;display:flex;justify-content:space-between;align-items:flex-start;gap:20px;pointer-events:none}.office-header>*{pointer-events:auto}.office-eyebrow{font-size:12px;letter-spacing:4px;color:#8bd5e5}.office-header h1{font-size:18px;font-weight:500;margin:7px 0;text-shadow:0 2px 8px #000}.office-experience button,.office-experience a{touch-action:manipulation}.office-mode,.office-overview{background:#0b1722eb;color:#e7f1f6;border:1px solid #435b69;border-radius:8px;padding:12px 16px;font-size:13px;cursor:pointer;min-height:44px}.office-access-panel{position:absolute;z-index:20;bottom:20px;left:50%;transform:translateX(-50%);width:min(670px,calc(100% - 32px));background:#08121aeF;border:1px solid #314b5a;border-radius:14px;padding:14px 18px;box-shadow:0 12px 45px #0007}.office-monitor-nav{display:flex;gap:8px}.office-monitor-nav button{flex:1;min-height:46px;border:1px solid #344c5b;border-radius:8px;background:#101f2b;color:#e7f1f6;cursor:pointer;padding:10px 12px;font-size:13px;text-align:left}.office-key{color:#8bd5e5;margin-right:9px}.office-monitor-nav button[aria-pressed=true]{border-color:#9ce9f6;background:#174457}.office-monitor-nav button:hover{background:#1b3645;border-color:#6dbbd0}.office-experience button:focus-visible,.office-experience a:focus-visible{outline:3px solid #b1eff9;outline-offset:4px}.office-selection{margin-top:13px;line-height:1.35;font-size:13px}.office-selection p{color:#b6c9d4;font-size:12px;margin:5px 0 10px}.office-destinations{display:flex;gap:22px;flex-wrap:wrap;padding:3px 0}.office-destinations a,.office-flat-categories a{color:#9de2ef;font-size:13px;text-underline-offset:4px;padding:7px 0;min-height:30px}.office-overview{position:absolute;right:18px;bottom:17px;padding:9px 12px;font-size:12px}.office-destinations{padding-right:145px}.office-flat-panel{max-width:760px;margin:0 auto;padding:130px 24px 26px;position:relative}.office-flat-panel h2{font-size:30px;line-height:1.2}.office-flat-panel .office-overview{position:static;margin-top:14px}.office-flat-panel .office-destinations{padding-right:0}.office-flat-categories{max-width:760px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:0 24px 40px}.office-flat-categories article{background:#10202c;border:1px solid #304b59;padding:20px;border-radius:12px}.office-flat-categories h2{font-size:19px}.office-flat-categories p{font-size:14px;line-height:1.5;color:#bfd0d9}@media(max-width:680px){.office-header{top:16px;left:16px;right:16px}.office-header h1{font-size:15px}.office-mode{font-size:12px;padding:10px}.office-monitor-nav{gap:5px}.office-monitor-nav button{padding:9px 7px;font-size:12px;min-height:55px}.office-key{display:block;margin:0 0 4px}.office-access-panel{padding:12px;bottom:12px}.office-overview{position:static;margin-top:10px;width:100%}.office-destinations{padding-right:0;gap:25px}.office-flat-categories{grid-template-columns:1fr}.office-flat-panel h2{font-size:24px}}@media(prefers-reduced-motion:reduce){.office-experience *{scroll-behavior:auto!important;transition:none!important}}
+.office-options{display:flex;align-items:center;gap:16px}.office-motion{font-size:12px;display:flex;align-items:center;gap:7px;background:#08121acc;padding:10px;border-radius:7px;min-height:44px}.office-motion input{width:18px;height:18px;accent-color:#6dcadd}@media(max-width:680px){.office-options{flex-direction:column-reverse;gap:6px;align-items:flex-end}.office-motion{padding:6px;font-size:11px}}
+.office-html-layer{position:absolute;inset:0;pointer-events:none;z-index:5;overflow:clip}
+.office-canvas,.office-html-layer{bottom:220px}@media(max-width:680px){.office-canvas,.office-html-layer{bottom:260px}}
+.office-loading{position:absolute;z-index:6;top:30%;left:50%;transform:translateX(-50%);text-align:center;color:#cbe6ef;font-size:16px}.office-loading span{display:block;font-size:12px;margin-top:10px;color:#9eb6c2}
+
+/* Keep short landscape touch layouts within one viewport. */
+@media (orientation: landscape) and (max-height: 540px) and (pointer: coarse) {
+ .office-experience[data-render-mode="3d"] {
+  --office-compact-header:52px;
+  --office-compact-dock:calc(56px + max(4px,env(safe-area-inset-bottom)));
+  min-height:0;
+ }
+
+ .office-experience[data-render-mode="3d"] > :is(.office-canvas,.office-html-layer) {
+  top:var(--office-compact-header);
+  bottom:var(--office-compact-dock);
+ }
+
+ .office-experience[data-render-mode="3d"] > .office-header {
+  top:4px;
+  left:max(12px,env(safe-area-inset-left));
+  right:max(12px,env(safe-area-inset-right));
+  align-items:center;
+ }
+
+ .office-experience[data-render-mode="3d"] .office-header > div:first-child {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:2px 10px;
+ }
+
+ .office-experience[data-render-mode="3d"] .office-header h1 {
+  margin:0;
+  font-size:15px;
+  line-height:1.2;
+ }
+
+ .office-experience[data-render-mode="3d"] .office-options {
+  flex-direction:row;
+  align-items:center;
+  gap:6px;
+ }
+
+ .office-experience[data-render-mode="3d"] .office-access-panel {
+  bottom:max(4px,env(safe-area-inset-bottom));
+  width:min(670px,calc(100% - 24px - env(safe-area-inset-left) - env(safe-area-inset-right)));
+  height:56px;
+  padding:5px 8px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:6px;
+ }
+
+ .office-experience[data-render-mode="3d"] .office-monitor-nav button {
+  min-width:0;
+  min-height:44px;
+  padding:5px 7px;
+  font-size:12px;
+  line-height:1.15;
+ }
+
+ .office-experience[data-render-mode="3d"] .office-key {
+  display:inline;
+  margin-right:5px;
+ }
+
+ .office-experience[data-render-mode="3d"] .office-overview {
+  position:static;
+  width:auto;
+  margin:0;
+  padding:5px 8px;
+ }
+
+ /* Keep the selection announcement available to assistive technology. */
+ .office-experience[data-render-mode="3d"] .office-selection {
+  position:absolute;
+  width:1px;
+  height:1px;
+  margin:0;
+  overflow:hidden;
+  clip-path:inset(50%);
+  white-space:nowrap;
+ }
+}

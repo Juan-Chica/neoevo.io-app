@@ -19,3 +19,16 @@ a {
 * {
   box-sizing: border-box;
 }
+/* Public section navigation from the office. */
+#services, #work, #contact, #about { scroll-margin-top: 120px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Contact accessibility: retain the existing card, colors and responsive grid. */
+.contact-field { display: grid; gap: 8px; min-width: 0; }
+.contact-field label { color: #111827; font-size: 14px; font-weight: 600; }
+.contact-field label span { font-weight: 400; }
+.contact-field input, .contact-field textarea { width: 100%; min-width: 0; }
+.contact-field input:focus-visible, .contact-field textarea:focus-visible {
+  outline: 3px solid #075985; outline-offset: 3px;
+}
+.contact-error { color: #b91c1c; font-size: 14px; margin: 0; }

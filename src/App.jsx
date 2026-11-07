@@ -18,7 +18,8 @@ import ClientDetail from "./pages/Dashboard/ClientDetail";
 import Tasks from "./pages/Dashboard/Tasks";
 import Kanban from "./pages/Dashboard/Kanban";
 import Calendar from "./pages/Dashboard/Calendar";
-import Office from "./pages/Office";
+import { lazy, Suspense } from "react";
+const Office=lazy(()=>import("./pages/OfficeEntry"));
 
 export default function App() {
   return (
@@ -55,7 +56,7 @@ export default function App() {
         </Route>
 
         <Route path="/login" element={<Login />} />
-        <Route path="/office" element={<Office />} />
+        <Route path="/office" element={<Suspense fallback={<div role="status">Loading office…</div>}><Office /></Suspense>} />
       </Routes>
     </BrowserRouter>
   );
