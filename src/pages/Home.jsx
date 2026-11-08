@@ -1,7 +1,13 @@
 import { useState, useEffect } from "react";
 import ContactForm from "../Components/public/ContactForm";
 import {services,projects,contactLinks,corporateAbout} from "../Components/public/publicContent";
-import logo from "../assets/NeoEvo-logo.png";
+import logo from "../assets/NeoEvo-logo-120.webp?no-inline";
+import logoLarge from "../assets/NeoEvo-logo-240.webp";
+import heroSmall from "../assets/neoevo-office-banner-1200.webp";
+import hero from "../assets/neoevo-office-banner-1717.webp";
+
+const logoSrcSet = `${logo} 120w, ${logoLarge} 240w`;
+const projectImageSizes = "(min-width: 1280px) 344px, (min-width: 768px) calc(33.33vw - 82px), calc(100vw - 98px)";
 
 export default function HomePage() {
   useEffect(() => {
@@ -66,6 +72,10 @@ export default function HomePage() {
           <div className="flex items-center gap-4">
             <img
               src={logo}
+              srcSet={logoSrcSet}
+              sizes="(min-width: 768px) 120px, 96px"
+              width={120}
+              height={80}
               alt="NeoEvo logo"
               className="h-16 w-auto object-contain md:h-20"
             />
@@ -160,11 +170,18 @@ export default function HomePage() {
 
       <main>
         <section
-          className="relative min-h-[620px] overflow-hidden border-b border-gray-200 bg-cover bg-center bg-no-repeat md:min-h-[720px]"
-          style={{
-            backgroundImage: "url('/neoevo-office-banner.png')",
-          }}
+          className="relative min-h-[620px] overflow-hidden border-b border-gray-200 bg-[#080C12] md:min-h-[720px]"
         >
+          <img
+            src={hero}
+            srcSet={`${heroSmall} 1200w, ${hero} 1717w`}
+            sizes="(max-width: 767px) 1163px, (max-width: 1349px) 1350px, 100vw"
+            width={1717}
+            height={916}
+            fetchPriority="high"
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+          />
           <div className="absolute inset-0 bg-black/55" />
 
           <div className="relative z-10 mx-auto flex min-h-[620px] max-w-7xl items-center justify-center px-6 py-20 text-center md:min-h-[720px]">
@@ -319,7 +336,20 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <a
+            href="/office"
+            className="mt-8 flex items-center justify-between gap-4 rounded-2xl border border-[#0A84FF]/25 bg-[#F8FAFC] px-5 py-4 transition hover:border-[#0A84FF] hover:bg-[#0A84FF]/5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0A84FF] sm:gap-6 sm:px-6"
+          >
+            <span>
+              <span className="block font-semibold text-[#111827]">Explore Our 3D Office</span>
+              <span className="mt-1 block text-sm text-[#6B7280]">
+                Step inside and explore interactive demos of our websites, business systems and AI automation.
+              </span>
+            </span>
+            <span aria-hidden="true" className="text-xl text-[#0A84FF]">→</span>
+          </a>
+
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
             {projects.map((project) => (
               <div
                 key={project.title}
@@ -332,6 +362,12 @@ export default function HomePage() {
                 >
                   <img
                     src={project.image}
+                    srcSet={project.imageSrcSet}
+                    sizes={projectImageSizes}
+                    width={800}
+                    height={project.imageHeight}
+                    loading="lazy"
+                    decoding="async"
                     alt={project.title}
                     className="mb-5 aspect-[16/10] w-full rounded-2xl border border-gray-200 object-cover shadow-md transition duration-300 hover:scale-[1.02]"
                   />
@@ -376,6 +412,12 @@ export default function HomePage() {
               <div className="flex items-center gap-4">
                 <img
                   src={logo}
+                  srcSet={logoSrcSet}
+                  sizes="84px"
+                  width={120}
+                  height={80}
+                  loading="lazy"
+                  decoding="async"
                   alt="NeoEvo logo"
                   className="h-14 w-auto object-contain"
                 />

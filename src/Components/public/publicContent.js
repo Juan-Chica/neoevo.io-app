@@ -1,6 +1,12 @@
-import dealerWebsite from "../../assets/work/dealer-website.png";
-import dealerDashboard from "../../assets/work/dealer-dashboard.png";
-import businessStack from "../../assets/work/business-stack.png";
+import dealerWebsiteSmall from "../../assets/work/dealer-website-400.webp";
+import dealerWebsite from "../../assets/work/dealer-website-800.webp";
+import dealerWebsiteLarge from "../../assets/work/dealer-website-1200.webp";
+import dealerDashboardSmall from "../../assets/work/dealer-dashboard-400.webp";
+import dealerDashboard from "../../assets/work/dealer-dashboard-800.webp";
+import dealerDashboardLarge from "../../assets/work/dealer-dashboard-1200.webp";
+import businessStackSmall from "../../assets/work/business-stack-400.webp";
+import businessStack from "../../assets/work/business-stack-800.webp";
+import businessStackLarge from "../../assets/work/business-stack-1080.webp";
 export const services = [
     {
       title: "Starter Websites",
@@ -23,18 +29,24 @@ export const projects = [
       title: "Dealer Website Demo",
       subtitle: "Modern inventory-focused automotive site",
       image: dealerWebsite,
+      imageSrcSet: `${dealerWebsiteSmall} 400w, ${dealerWebsite} 800w, ${dealerWebsiteLarge} 1200w`,
+      imageHeight: 457,
       link: "https://nevodrive.com",
     },
     {
       title: "Dealer Pro System",
       subtitle: "Login, dashboard, leads, and management flow",
       image: dealerDashboard,
+      imageSrcSet: `${dealerDashboardSmall} 400w, ${dealerDashboard} 800w, ${dealerDashboardLarge} 1200w`,
+      imageHeight: 429,
       link: "/login",
     },
     {
       title: "Business Growth Stack",
       subtitle: "Chat, payments, and premium conversion features",
       image: businessStack,
+      imageSrcSet: `${businessStackSmall} 400w, ${businessStack} 800w, ${businessStackLarge} 1080w`,
+      imageHeight: 800,
       link: "/book",
     },
   ];
