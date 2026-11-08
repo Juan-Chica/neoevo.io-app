@@ -1,3 +1,4 @@
+import { officeModel, DRACO_PATH } from "./officeAssets";
 import { useGLTF } from "@react-three/drei";
 
 export default function OfficeChair({
@@ -5,7 +6,7 @@ export default function OfficeChair({
   rotation = [0, 0, 0],
   scale = 1,
 }) {
-  const { scene } = useGLTF("/models/office-chair.glb");
+  const { scene } = useGLTF(officeModel("office-chair.glb"), DRACO_PATH);
 
   return (
     <primitive
@@ -18,5 +19,3 @@ export default function OfficeChair({
     />
   );
 }
-
-useGLTF.preload("/models/office-chair.glb");

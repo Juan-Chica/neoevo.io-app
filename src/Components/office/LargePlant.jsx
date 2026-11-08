@@ -1,3 +1,4 @@
+import { officeModel, DRACO_PATH } from "./officeAssets";
 import { useGLTF } from "@react-three/drei";
 
 export default function LargePlant({
@@ -5,7 +6,7 @@ export default function LargePlant({
   rotation = [0, 0, 0],
   scale = 1,
 }) {
-  const { scene } = useGLTF("/models/neoevo-large-plant.glb");
+  const { scene } = useGLTF(officeModel("neoevo-large-plant.glb"), DRACO_PATH);
 
   return (
     <primitive
@@ -16,5 +17,3 @@ export default function LargePlant({
     />
   );
 }
-
-useGLTF.preload("/models/neoevo-large-plant.glb");

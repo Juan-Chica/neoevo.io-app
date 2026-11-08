@@ -1,33 +1,24 @@
-import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
+import { useState, useEffect } from "react";
+import ContactForm from "../Components/public/ContactForm";
+import {services,projects,contactLinks,corporateAbout} from "../Components/public/publicContent";
 import logo from "../assets/NeoEvo-logo.png";
-import dealerWebsite from "../assets/work/dealer-website.png";
-import dealerDashboard from "../assets/work/dealer-dashboard.png";
-import businessStack from "../assets/work/business-stack.png";
 
 export default function HomePage() {
-  const formRef = useRef(null);
-  const [success, setSuccess] = useState(false);
-  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    const revealSection = () => {
+      const id = window.location.hash.slice(1);
+      if (!['services', 'work', 'contact', 'about', 'offers'].includes(id)) return;
+      const target = document.getElementById(id);
+      target?.scrollIntoView({behavior: 'instant', block: 'start'});
+      target?.focus({preventScroll: true});
+    };
+    revealSection();
+    window.addEventListener('hashchange', revealSection);
+    return () => window.removeEventListener('hashchange', revealSection);
+  }, []);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const services = [
-    {
-      title: "Starter Websites",
-      description:
-        "Clean, modern business websites built to help local companies look professional and generate more leads.",
-    },
-    {
-      title: "Business Systems",
-      description:
-        "Login dashboards, inventory tools, lead tracking, and internal workflows designed to make operations easier.",
-    },
-    {
-      title: "Growth Upgrades",
-      description:
-        "Chat features, online payments, automation, and future-ready tools for businesses that want more control.",
-    },
-  ];
+
 
   const offers = [
     {
@@ -63,60 +54,10 @@ export default function HomePage() {
     },
   ];
 
-  const projects = [
-    {
-      title: "Dealer Website Demo",
-      subtitle: "Modern inventory-focused automotive site",
-      image: dealerWebsite,
-      link: "https://nevodrive.com",
-    },
-    {
-      title: "Dealer Pro System",
-      subtitle: "Login, dashboard, leads, and management flow",
-      image: dealerDashboard,
-      link: "/login",
-    },
-    {
-      title: "Business Growth Stack",
-      subtitle: "Chat, payments, and premium conversion features",
-      image: businessStack,
-      link: "/book",
-    },
-  ];
 
-  const contactLinks = {
-    sms: "sms:+18647149923",
-    call: "tel:+18647149923",
-    whatsapp:
-      "https://wa.me/18647149923?text=Hi%20I%20am%20interested%20in%20your%20services",
-    messenger: "https://m.me/neoevo",
-    email: "mailto:info@neoevo.io",
-    instagram: "https://instagram.com/neoevo.io",
-    booking: "/book",
-  };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setSuccess(false);
 
-    try {
-      await emailjs.sendForm(
-        "service_p24wmf8",
-        "template_fqxlctt",
-        formRef.current,
-        "GVcbG8IKCsgussbRL",
-      );
 
-      setSuccess(true);
-      formRef.current.reset();
-    } catch (error) {
-      console.error("EmailJS FULL ERROR:", error);
-      alert("Something went wrong. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <div className="min-h-screen bg-white text-[#111827]">
@@ -262,7 +203,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="services" className="mx-auto max-w-7xl px-6 py-20">
+        <section id="services" tabIndex={-1} className="mx-auto max-w-7xl px-6 py-20">
           <div className="max-w-2xl">
             <p className="text-sm uppercase tracking-[0.35em] text-[#0A84FF]">
               Services
@@ -295,7 +236,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="offers" className="border-y border-gray-200 bg-[#F8FAFC]">
+        <section id="offers" tabIndex={-1} className="border-y border-gray-200 bg-[#F8FAFC]">
           <div className="mx-auto max-w-7xl px-6 py-20">
             <div className="max-w-2xl">
               <p className="text-sm uppercase tracking-[0.35em] text-[#0A84FF]">
@@ -361,7 +302,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="work" className="mx-auto max-w-7xl px-6 py-20">
+        <section id="work" tabIndex={-1} className="mx-auto max-w-7xl px-6 py-20">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
               <p className="text-sm uppercase tracking-[0.35em] text-[#0A84FF]">
@@ -405,7 +346,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="contact" className="border-t border-gray-200 bg-white">
+        <section id="contact" tabIndex={-1} className="border-t border-gray-200 bg-white">
           <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-2">
             <div>
               <p className="text-sm uppercase tracking-[0.35em] text-[#0A84FF]">
@@ -422,116 +363,13 @@ export default function HomePage() {
             </div>
 
             <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-md">
-              <form
-                ref={formRef}
-                className="grid gap-5"
-                onSubmit={handleSubmit}
-              >
-                <input
-                  name="name"
-                  required
-                  placeholder="Your name"
-                  className="rounded-xl border border-gray-300 bg-[#F9FAFB] px-4 py-3 text-[#111827] placeholder:text-[#9CA3AF] outline-none"
-                />
-
-                <input
-                  name="email"
-                  required
-                  placeholder="Business email"
-                  className="rounded-xl border border-gray-300 bg-[#F9FAFB] px-4 py-3 text-[#111827] placeholder:text-[#9CA3AF] outline-none"
-                />
-
-                <textarea
-                  name="message"
-                  required
-                  rows={5}
-                  placeholder="Tell me about your business and what you want to build"
-                  className="rounded-xl border border-gray-300 bg-[#F9FAFB] px-4 py-3 text-[#111827] placeholder:text-[#9CA3AF] outline-none"
-                />
-
-                <button
-                  type="submit"
-                  className="rounded-2xl bg-[#0A84FF] px-6 py-3 font-semibold text-white shadow-lg shadow-[#0A84FF]/25 transition hover:scale-[1.02] hover:opacity-90"
-                >
-                  {loading ? "Sending..." : "Submit Request"}
-                </button>
-
-                <div className="grid gap-3 sm:grid-cols-3">
-                  <a
-                    href={contactLinks.booking}
-                    className="rounded-2xl bg-[#0A84FF] px-6 py-3 text-center font-semibold text-white shadow-lg shadow-[#0A84FF]/25 transition hover:scale-[1.02] hover:opacity-90"
-                  >
-                    Book Consultation
-                  </a>
-
-                  <a
-                    href={contactLinks.sms}
-                    className="rounded-2xl border border-gray-300 bg-white px-6 py-3 text-center font-semibold text-[#111827] transition hover:bg-gray-50"
-                  >
-                    Text Us
-                  </a>
-
-                  <a
-                    href={contactLinks.whatsapp}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="rounded-2xl border border-[#0A84FF]/30 bg-[#0A84FF]/10 px-6 py-3 text-center font-semibold text-[#0A84FF] transition hover:bg-[#0A84FF] hover:text-white"
-                  >
-                    WhatsApp
-                  </a>
-                </div>
-
-                <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-[#6B7280]">
-                  <a
-                    href={contactLinks.messenger}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="transition hover:text-[#111827]"
-                  >
-                    Messenger
-                  </a>
-
-                  <a
-                    href={contactLinks.email}
-                    className="transition hover:text-[#111827]"
-                  >
-                    Email
-                  </a>
-
-                  <a
-                    href={contactLinks.instagram}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="transition hover:text-[#111827]"
-                  >
-                    Instagram
-                  </a>
-
-                  <a
-                    href={contactLinks.call}
-                    className="transition hover:text-[#111827]"
-                  >
-                    Call
-                  </a>
-                </div>
-
-                {success && (
-                  <p className="text-center text-sm text-[#0A84FF]">
-                    Request sent successfully 🚀
-                  </p>
-                )}
-
-                <p className="text-center text-xs text-[#EF4444]">
-                  Takes 15 minutes • No commitment • Limited build spots this
-                  month
-                </p>
-              </form>
+              <ContactForm />
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-gray-200 bg-[#F8FAFC]">
+      <footer id="about" tabIndex={-1} className="border-t border-gray-200 bg-[#F8FAFC]">
         <div className="mx-auto max-w-7xl px-6 py-12">
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
             <div className="lg:col-span-2">
@@ -552,9 +390,7 @@ export default function HomePage() {
               </div>
 
               <p className="mt-5 max-w-xl text-sm leading-6 text-[#6B7280]">
-                NeoEvo helps local businesses grow with modern websites,
-                business systems, automation, lead management, and digital
-                experiences designed to generate more opportunities.
+                {corporateAbout}
               </p>
 
               <div className="mt-6 flex flex-wrap gap-3">
@@ -592,6 +428,8 @@ export default function HomePage() {
                 <a href="#services" className="hover:text-[#0A84FF]">
                   AI & Automation
                 </a>
+
+                <a href="/office" className="hover:text-[#0A84FF]">3D Office</a>
 
                 <a href="#work" className="hover:text-[#0A84FF]">
                   Dealer Solutions
