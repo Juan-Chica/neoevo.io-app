@@ -68,7 +68,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white text-[#111827]">
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#080C12]">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:gap-4">
           <div className="flex items-center gap-4">
             <img
               src={logo}
@@ -90,7 +90,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <nav className="hidden items-center gap-8 text-sm text-gray-300 md:flex">
+          <nav aria-label="Main navigation" className="hidden shrink-0 items-center gap-3 whitespace-nowrap text-sm text-gray-300 md:flex lg:gap-5 xl:gap-8">
             <a href="#services" className="transition hover:text-white">
               Services
             </a>
@@ -102,6 +102,15 @@ export default function HomePage() {
             </a>
             <a href="#contact" className="transition hover:text-white">
               Contact
+            </a>
+            <a
+              href="/login"
+              className="inline-flex min-h-10 items-center gap-2 rounded-full border border-white/25 px-3 py-2 font-medium text-gray-200 transition hover:border-white/50 hover:bg-white/5 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#68B3FF]"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M13 5h6v14h-6M4 12h10m-4-4 4 4-4 4" />
+              </svg>
+              Client Portal
             </a>
             <a
               href={contactLinks.sms}
