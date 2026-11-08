@@ -2,6 +2,7 @@ import {lazy,Suspense,useEffect,useState} from 'react';
 import {officeModel,clearOfficeProfile} from '../Components/office/officeAssets';
 import {supportsWebGL} from '../Components/office/webglSupport';
 import OfficeDestinationLinks from '../Components/office/OfficeDestinationLinks';
+import { AccessibleOfficeWork } from '../Components/office/ProjectSpotlight';
 import './OfficeEntry.css';
 const Office=lazy(()=>import('./Office'));
 const storedFlat=()=>{try{return new URLSearchParams(location.search).get('mode')==='2d'||sessionStorage.getItem('neoevo-office-view')==='2d';}catch{return false;}};
@@ -21,6 +22,7 @@ export default function OfficeEntry(props){
   <h1>NeoEvo virtual headquarters</h1>
   <p role="status">{flat?'Explore NeoEvo without the 3D view.':!available?'The 3D view is unavailable.':'Loading the office… Select accessible view to browse without 3D.'}</p>
   {(flat||!available)&&<nav aria-label="Accessible public website destinations" style={{display:'flex',gap:24,flexWrap:'wrap',color:'#9de2ef',textDecoration:'underline'}}><OfficeDestinationLinks/></nav>}
+  {(flat||!available)&&<AccessibleOfficeWork/>}
   <p>Websites · Business Systems · AI Automations</p>
   {available&&<button onClick={toggle} style={{padding:'12px 16px',marginTop:16,border:'1px solid #9de2ef',borderRadius:8}}>{flat?'View 3D office':'Use accessible view'}</button>}
  </main>;

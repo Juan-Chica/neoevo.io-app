@@ -3,7 +3,8 @@ import MonitorScrollbar from './MonitorScrollbar';
 import MonitorIcon from './MonitorIcon';
 import MonitorContactActions from './MonitorContactActions';
 import ContactForm from '../public/ContactForm';
-import {services,projects,corporateAbout} from '../public/publicContent';
+import ProjectSpotlight from './ProjectSpotlight';
+import {services,corporateAbout} from '../public/publicContent';
 import './MonitorWebsite.css';
 function revealSectionButton(button){
  const nav=button?.closest('nav');if(!nav)return;
@@ -20,7 +21,6 @@ function revealLabeledField(event){
 }
 const sections=[{name:'Home',icon:'home'},{name:'Services',icon:'services'},{name:'Work',icon:'work'},{name:'About',icon:'about'},{name:'Contact',icon:'contact'}];
 const categoryIcons=['web','systems','automation'];
-const projectAction=({link})=>link==='/book'?'Book a call':link==='/login'?'Sign in':'View demo';
 export default function MonitorWebsite({updateSession,monitor,session,width}){
  const [section,setSection]=useState(session.section);const scroll=useRef(null),heading=useRef(null),positions=useRef(session.scroll),navigation=useRef(null),content=useRef(null);
  useLayoutEffect(()=>{scroll.current.scrollTop=positions.current[section]||0;heading.current?.focus({preventScroll:true});},[section]);
@@ -43,7 +43,7 @@ export default function MonitorWebsite({updateSession,monitor,session,width}){
       <div className="monitor-quick-actions"><button onClick={()=>select('Work')}><MonitorIcon name="work"/><span>Explore our work</span><MonitorIcon name="arrow"/></button><button onClick={()=>select('Contact')}><MonitorIcon name="contact"/><span>Start a conversation</span><MonitorIcon name="arrow"/></button></div>
      </>}
      {section==='Services'&&<div className="monitor-card-list">{services.map((item,i)=><article className="monitor-premium-card" key={item.title}><div className="monitor-card-title"><span className="monitor-card-symbol"><MonitorIcon name={categoryIcons[i]}/></span><h3>{item.title}</h3></div><p>{item.description}</p><button className="monitor-text-button" onClick={()=>select('Contact')}>Contact NeoEvo <MonitorIcon name="arrow"/></button></article>)}</div>}
-     {section==='Work'&&<div className="monitor-card-list">{projects.map((item,i)=><article className="monitor-premium-card monitor-project-card" key={item.title}><div className="monitor-project-art" aria-hidden="true"><span/><MonitorIcon name={categoryIcons[i]}/></div><div><h3>{item.title}</h3><p>{item.subtitle}</p><a className="monitor-project-link" href={item.link} target="_blank" rel="noopener noreferrer" aria-label={projectAction(item)+' — '+item.title+'; outside office, new tab'}><span>{projectAction(item)}<small>Outside office · new tab</small></span><MonitorIcon name="external"/></a></div></article>)}</div>}
+     {section==='Work'&&<ProjectSpotlight selected={session.project} onSelect={project=>updateSession({project})}/>}
      {section==='About'&&<article className="monitor-premium-card monitor-about-card"><span className="monitor-card-kicker">NeoEvo</span><h3>Digital Systems for Growing Businesses</h3><p>{corporateAbout}</p><button className="monitor-primary-button" onClick={()=>select('Contact')}><MonitorIcon name="contact"/>Contact NeoEvo<MonitorIcon name="arrow"/></button></article>}
      {section==='Contact'&&<>
       <MonitorContactActions/>

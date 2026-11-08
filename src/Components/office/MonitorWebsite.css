@@ -31,13 +31,7 @@
 .monitor-website.monitor-polished .monitor-quick-actions{display:grid;gap:8px;margin-top:10px;}
 .monitor-website.monitor-polished .monitor-quick-actions button{display:grid;grid-template-columns:20px minmax(0,1fr) 16px;align-items:center;gap:9px;min-height:44px;padding:10px;text-align:left;border-color:#365a6c;border-radius:7px;}
 .monitor-website.monitor-polished .monitor-quick-actions .monitor-ui-icon:last-child{width:16px;height:16px;}
-.monitor-website.monitor-polished .monitor-project-card{display:grid;grid-template-columns:48px minmax(0,1fr);gap:12px;}
-.monitor-website.monitor-polished .monitor-project-art{align-self:start;display:grid;place-items:center;position:relative;overflow:hidden;min-height:56px;border:1px solid #46768c;border-radius:7px;background:linear-gradient(145deg,#1a4c66,#102a3d);color:#b1eff9;}
-.monitor-website.monitor-polished .monitor-project-art>span{position:absolute;inset:0 0 auto;height:7px;border-bottom:1px solid #6ac1da66;background:#0a1c2b;}
-.monitor-website.monitor-polished .monitor-project-art .monitor-ui-icon{width:26px;height:26px;margin-top:5px;}
-.monitor-website.monitor-polished .monitor-project-link{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;padding:8px 10px;}
 .monitor-website.monitor-polished small{display:block;font-size:13px;line-height:1.4;color:#a9c5d4;font-weight:400;}
-.monitor-website.monitor-polished .monitor-project-link .monitor-ui-icon{width:16px;height:16px;}
 .monitor-website.monitor-polished .monitor-contact-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0 0 16px;}
 .monitor-website.monitor-polished .monitor-contact-actions a{display:flex;align-items:center;gap:8px;min-height:56px;padding:9px 8px;border:1px solid #3c657b;border-radius:7px;background:#103047;}
 .monitor-website.monitor-polished .monitor-contact-actions a>span:nth-child(2){min-width:0;flex:1;}
@@ -62,9 +56,6 @@
 @media(max-width:700px){
  .monitor-website.monitor-polished .monitor-contact-actions{grid-template-columns:minmax(0,1fr);}
  .monitor-website.monitor-polished .monitor-contact-actions a{min-height:50px;padding:8px 10px;}
- .monitor-website.monitor-polished .monitor-project-card{grid-template-columns:32px minmax(0,1fr);gap:9px;}
- .monitor-website.monitor-polished .monitor-project-art{min-height:42px;}
- .monitor-website.monitor-polished .monitor-project-art .monitor-ui-icon{width:20px;height:20px;}
  .monitor-website.monitor-polished .monitor-premium-card{padding:10px;}
 }
 @media(prefers-reduced-motion:reduce){.monitor-website.monitor-polished :is(button,a,summary){transition:none;}}
