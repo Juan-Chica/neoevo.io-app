@@ -1,6 +1,7 @@
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import OfficeDestinationLinks from '../Components/office/OfficeDestinationLinks';
+import { AccessibleOfficeWork } from '../Components/office/ProjectSpotlight';
 import CinematicCamera from '../Components/office/CinematicCamera';
 import { officeProfile, clearOfficeProfile, officeAssetUrls, DRACO_PATH } from '../Components/office/officeAssets';
 import OfficeContextLifetime from '../Components/office/OfficeContextLifetime';
@@ -89,6 +90,7 @@ export default function Office({diagnostics=false,benchmark=false,initialFlat}){
    </nav>
    <div className="office-selection" aria-live="polite" aria-atomic="true"><strong>{selected?.title||(view==='shelf'?'About NeoEvo':'Office overview')}</strong><p>{selected?.description||(view==='shelf'?'Discover the team and the systems we build.':'Choose a monitor to explore. Use 1–3, Tab and Enter; Escape returns to overview.')}</p></div>
    {!use3D&&<nav className="office-destinations" aria-label="NeoEvo destinations"><OfficeDestinationLinks /></nav>}
+   {!use3D&&<AccessibleOfficeWork/>}
    <button ref={overviewButton} className="office-overview" aria-keyshortcuts="Escape Home" onClick={reset}>Return to overview</button>
   </main>
   {!use3D&&<div className="office-flat-categories">{MONITORS.map(m=><article key={m.id}><h2>{m.title}</h2><p>{m.description}</p><a href="/#services">Explore services</a></article>)}</div>}
