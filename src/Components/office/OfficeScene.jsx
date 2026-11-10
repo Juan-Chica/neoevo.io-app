@@ -7,7 +7,7 @@ import NeoEvoShelf from "./NeoEvoShelf";
 import FuturisticLights from "./FuturisticLights";
 import LargePlant from "./LargePlant";
 
-export default function OfficeScene({ updateSession, sessions, interactionReady, onDeskClick, onMonitorClick, onShelfClick, selectedMonitor, highlightedMonitor, onMonitorHover, htmlPortal, onReady }) {
+export default function OfficeScene({ updateSession, sessions, interactionReady, onDeskClick, onMonitorClick, onShelfClick, shelfObjects, selectedMonitor, highlightedMonitor, onMonitorHover, htmlPortal, onReady }) {
   useEffect(()=>{onReady?.();},[onReady]);
   return (
     <>
@@ -21,6 +21,7 @@ export default function OfficeScene({ updateSession, sessions, interactionReady,
         rotation={[0, 0, 0]}
         scale={3}
         onClick={onShelfClick}
+        objects={shelfObjects}
       />
       <LargePlant 
         position={[-5.5, 1.8, -4.5]} 
