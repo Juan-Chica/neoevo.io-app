@@ -1,6 +1,7 @@
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import OfficeDestinationLinks from '../Components/office/OfficeDestinationLinks';
+import OfficePortalEntry from '../Components/office/OfficePortalEntry';
 import { AccessibleOfficeWork } from '../Components/office/ProjectSpotlight';
 import ShelfExplorer, { AccessibleShelf } from '../Components/office/ShelfExplorer';
 import { SHELF_ITEMS } from '../Components/office/shelfItems';
@@ -144,7 +145,7 @@ export default function Office({diagnostics=false,benchmark=false,initialFlat}){
    </nav>
    <div className="office-selection" aria-live="polite" aria-atomic="true"><strong>{selected?.title||(view==='shelf'?'Interactive shelf':'Office overview')}</strong><p>{selected?.description||(view==='shelf'?'Choose a shelf object to learn more.':'Choose a monitor to explore. Use 1–3, Tab and Enter; Escape returns to overview.')}</p></div>
    {!use3D&&<nav className="office-destinations" aria-label="NeoEvo destinations"><OfficeDestinationLinks /></nav>}
-   {!use3D&&<><AccessibleOfficeWork/><AccessibleShelf/></>}
+   {!use3D&&<><OfficePortalEntry/><AccessibleOfficeWork/><AccessibleShelf/></>}
    {shelfReady&&<ShelfExplorer selected={shelfItem} onSelect={setShelfItem} onOpen={launchFromShelf} controlsRef={shelfControls}/>}
    <div className="office-shelf-navigation">
     {use3D&&activeDestination&&<button type="button" onClick={backToShelf}>Back to shelf</button>}

@@ -1,0 +1,52 @@
+.office-portal-entry {
+  max-width: 32rem;
+  margin: 16px 0;
+  padding: 14px;
+  border: 1px solid #3d6677;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #142934, #0d1922);
+  color: #e7f1f6;
+}
+
+.office-portal-entry :is(h2, h3) {
+  margin: 0;
+  font-size: 18px;
+}
+
+.office-portal-entry p {
+  margin: 6px 0 10px;
+  color: #bfd1dc;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.office-portal-entry a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 6px 10px;
+  border: 1px solid #5795a6;
+  border-radius: 7px;
+  background: #142e3a;
+  color: #b1eff9;
+  font-weight: 600;
+  text-decoration: none;
+  touch-action: manipulation;
+}
+
+.office-portal-entry a:hover {
+  background: #204557;
+  text-decoration: underline;
+}
+
+.office-portal-entry a:focus-visible {
+  outline: 3px solid #b1eff9;
+  outline-offset: 3px;
+}
+
+.office-portal-entry a svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
