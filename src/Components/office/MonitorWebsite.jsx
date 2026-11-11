@@ -4,6 +4,7 @@ import MonitorIcon from './MonitorIcon';
 import MonitorContactActions from './MonitorContactActions';
 import ContactForm from '../public/ContactForm';
 import ProjectSpotlight from './ProjectSpotlight';
+import OfficePortalEntry from './OfficePortalEntry';
 import {services,corporateAbout} from '../public/publicContent';
 import './MonitorWebsite.css';
 function revealSectionButton(button){
@@ -42,6 +43,7 @@ export default function MonitorWebsite({updateSession,monitor,session,width}){
      <div className="monitor-section-heading"><span className="monitor-section-symbol"><MonitorIcon name={section==='Home'?categoryIcons[categoryIndex]:sections.find(s=>s.name===section).icon}/></span><h2 ref={heading} tabIndex={-1}>{section==='Home'?monitor.title:section}</h2></div>
      {section==='Home'&&<>
       <p className="monitor-lead">{monitor.description}</p>
+      <OfficePortalEntry inMonitor />
       <article className="monitor-premium-card monitor-feature-card"><span className="monitor-card-kicker">Digital systems for growing businesses</span><h3>{category.title}</h3><p>{category.description}</p><button className="monitor-primary-button" onClick={()=>select('Services')}>Explore services <MonitorIcon name="arrow"/></button></article>
       <div className="monitor-quick-actions"><button onClick={()=>select('Work')}><MonitorIcon name="work"/><span>Explore our work</span><MonitorIcon name="arrow"/></button><button onClick={()=>select('Contact')}><MonitorIcon name="contact"/><span>Start a conversation</span><MonitorIcon name="arrow"/></button></div>
      </>}
