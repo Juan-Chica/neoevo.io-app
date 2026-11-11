@@ -22,10 +22,13 @@ function revealLabeledField(event){
 const sections=[{name:'Home',icon:'home'},{name:'Services',icon:'services'},{name:'Work',icon:'work'},{name:'About',icon:'about'},{name:'Contact',icon:'contact'}];
 const categoryIcons=['web','systems','automation'];
 export default function MonitorWebsite({updateSession,monitor,session,width}){
- const [section,setSection]=useState(session.section);const scroll=useRef(null),heading=useRef(null),positions=useRef(session.scroll),navigation=useRef(null),content=useRef(null);
+ const shortcut=session.shelfDestination;
+ const [section,setSection]=useState(shortcut?.section??session.section);
+ const [shortcutProject,setShortcutProject]=useState(shortcut?.project??session.project);
+ const scroll=useRef(null),heading=useRef(null),positions=useRef(shortcut?{}:session.scroll),navigation=useRef(null),content=useRef(null);
  useLayoutEffect(()=>{scroll.current.scrollTop=positions.current[section]||0;heading.current?.focus({preventScroll:true});},[section]);
  useLayoutEffect(()=>{revealSectionButton(navigation.current?.querySelector('[aria-current="page"]'));},[section,width]);
- const select=name=>{updateSession({section:name});setSection(name);};
+ const select=name=>{if(!shortcut)updateSession({section:name});setSection(name);};
  const categoryIndex=monitor.id==='left'?0:monitor.id==='center'?1:2;
  const category=services[categoryIndex];
  return <section className="monitor-content monitor-website monitor-polished" aria-label={monitor.title+' monitor'} style={{width,height:width*.92/1.5}} onPointerDown={e=>e.stopPropagation()} onClick={e=>e.stopPropagation()} onWheel={e=>e.stopPropagation()} onKeyDown={e=>e.stopPropagation()}>
@@ -34,7 +37,7 @@ export default function MonitorWebsite({updateSession,monitor,session,width}){
    <nav ref={navigation} className="monitor-site-nav" aria-label={monitor.title+' website sections'}>{sections.map(item=><button key={item.name} aria-current={item.name===section?'page':undefined} onFocus={e=>revealSectionButton(e.currentTarget)} onClick={()=>select(item.name)}><MonitorIcon name={item.icon}/><span>{item.name}</span></button>)}</nav>
   </header>
   <div className="monitor-reading-area">
-   <div id={'monitor-'+monitor.id+'-scroll'} className="monitor-scroll" onFocusCapture={revealLabeledField} ref={scroll} onScroll={e=>{positions.current={...positions.current,[section]:e.currentTarget.scrollTop};updateSession({scroll:positions.current});}} tabIndex={0} aria-label={section+' content'}>
+   <div id={'monitor-'+monitor.id+'-scroll'} className="monitor-scroll" onFocusCapture={revealLabeledField} ref={scroll} onScroll={e=>{positions.current={...positions.current,[section]:e.currentTarget.scrollTop};if(!shortcut)updateSession({scroll:positions.current});}} tabIndex={0} aria-label={section+' content'}>
     <div ref={content} className="monitor-scroll-inner">
      <div className="monitor-section-heading"><span className="monitor-section-symbol"><MonitorIcon name={section==='Home'?categoryIcons[categoryIndex]:sections.find(s=>s.name===section).icon}/></span><h2 ref={heading} tabIndex={-1}>{section==='Home'?monitor.title:section}</h2></div>
      {section==='Home'&&<>
@@ -43,7 +46,7 @@ export default function MonitorWebsite({updateSession,monitor,session,width}){
       <div className="monitor-quick-actions"><button onClick={()=>select('Work')}><MonitorIcon name="work"/><span>Explore our work</span><MonitorIcon name="arrow"/></button><button onClick={()=>select('Contact')}><MonitorIcon name="contact"/><span>Start a conversation</span><MonitorIcon name="arrow"/></button></div>
      </>}
      {section==='Services'&&<div className="monitor-card-list">{services.map((item,i)=><article className="monitor-premium-card" key={item.title}><div className="monitor-card-title"><span className="monitor-card-symbol"><MonitorIcon name={categoryIcons[i]}/></span><h3>{item.title}</h3></div><p>{item.description}</p><button className="monitor-text-button" onClick={()=>select('Contact')}>Contact NeoEvo <MonitorIcon name="arrow"/></button></article>)}</div>}
-     {section==='Work'&&<ProjectSpotlight selected={session.project} onSelect={project=>updateSession({project})}/>}
+     {section==='Work'&&<ProjectSpotlight selected={shortcut?shortcutProject:session.project} onSelect={shortcut?setShortcutProject:project=>updateSession({project})}/>}
      {section==='About'&&<article className="monitor-premium-card monitor-about-card"><span className="monitor-card-kicker">NeoEvo</span><h3>Digital Systems for Growing Businesses</h3><p>{corporateAbout}</p><button className="monitor-primary-button" onClick={()=>select('Contact')}><MonitorIcon name="contact"/>Contact NeoEvo<MonitorIcon name="arrow"/></button></article>}
      {section==='Contact'&&<>
       <MonitorContactActions/>
