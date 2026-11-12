@@ -1,0 +1,6 @@
+{
+  "lock": "../deno.lock",
+  "imports": {
+    "@supabase/supabase-js": "npm:@supabase/supabase-js@2.108.1"
+  }
+}
